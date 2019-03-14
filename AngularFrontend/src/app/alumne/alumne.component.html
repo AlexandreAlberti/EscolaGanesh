@@ -1,0 +1,38 @@
+<div>
+<h2> Alumne Details</h2>
+
+<div class="mdl-cell mdl-cell--3-col">
+	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" (click)="goCreateAlumne()">Create</button>
+</div>
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+  <thead>
+  <tr>
+    <th class="hidden">Id</th>
+    <th class="mdl-data-table__cell--non-numeric">FirstName</th>
+    <th class="mdl-data-table__cell--non-numeric">LastName</th>
+    <th class="mdl-data-table__cell--non-numeric">Email</th>
+    <th class="mdl-data-table__cell--non-numeric">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let alumne of alumnes">
+    <td class="hidden">{{alumne.id}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{alumne.firstName}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{alumne.lastName}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{alumne.email}}</td>
+    <td class="mdl-data-table__cell--non-numeric">
+      <a class="mdl-button mdl-js-button" (click)="goViewAlumne(alumne)">
+	    <i class="material-icons">remove_red_eye</i>
+	  </a>
+      <a class="mdl-button mdl-js-button" (click)="goEditAlumne(alumne)">
+	    <i class="material-icons">edit</i>
+	  </a>
+      <a class="mdl-button mdl-js-button" (click)="deleteAlumne(alumne)">
+	    <i class="material-icons">delete</i>
+	  </a>
+	 </td>
+  </tr>
+  </tbody>
+</table>
+</div>

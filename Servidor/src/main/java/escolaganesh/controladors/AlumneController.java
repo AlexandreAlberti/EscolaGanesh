@@ -17,45 +17,46 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import escolaganesh.models.AlumnesDTO;
-import escolaganesh.serveis.AlumnesService;
+import escolaganesh.models.AlumneDTO;
+import escolaganesh.serveis.AlumneService;
 
 @Controller
-@RequestMapping("/alumnes")
+@RequestMapping("/alumne")
 @CrossOrigin(origins = "*", maxAge = 3600)
-public class AlumnesController {
+public class AlumneController {
 
 	@Autowired
-	private AlumnesService userService;
+	private AlumneService userService;
 
 	@PostMapping
 	@ResponseBody
-	public AlumnesDTO create(@RequestBody AlumnesDTO user) {
+	public AlumneDTO create(@RequestBody AlumneDTO user) {
 		return userService.create(user);
 	}
 
 	@GetMapping(path = { "/{id}" })
 	@ResponseBody
-	public AlumnesDTO findOne(@PathVariable("id") int id) {
+	public AlumneDTO findOne(@PathVariable("id") int id) {
 		return userService.findById(id);
 	}
 
 	@PutMapping(path = { "/{id}" })
 	@ResponseBody
-	public AlumnesDTO update(@PathVariable("id") int id, @RequestBody AlumnesDTO user) {
+	public AlumneDTO update(@PathVariable("id") int id, @RequestBody AlumneDTO user) {
 		user.setId(id);
 		return userService.update(user);
 	}
 
 	@DeleteMapping(path = { "/{id}" })
+	@ResponseBody
 	public int delete(@PathVariable("id") int id) {
 		return userService.delete(id);
 	}
 
 	@GetMapping
 	@ResponseBody
-	public List<AlumnesDTO> findAll() throws JsonProcessingException {
-		List<AlumnesDTO> allAlumnes = userService.findAll();
+	public List<AlumneDTO> findAll() throws JsonProcessingException {
+		List<AlumneDTO> allAlumnes = userService.findAll();
 		System.out.println(new ObjectMapper().writeValueAsString(allAlumnes));
 		return allAlumnes;
 	}

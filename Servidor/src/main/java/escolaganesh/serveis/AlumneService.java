@@ -9,52 +9,52 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import escolaganesh.entitats.Alumnes;
-import escolaganesh.models.AlumnesDTO;
-import escolaganesh.repositoris.AlumnesRepository;
+import escolaganesh.entitats.Alumne;
+import escolaganesh.models.AlumneDTO;
+import escolaganesh.repositoris.AlumneRepository;
 
 @Service
-public class AlumnesService {
+public class AlumneService {
 
 	@Autowired
-	private AlumnesRepository repository;
+	private AlumneRepository repository;
 
-	public AlumnesDTO create(AlumnesDTO user) {
+	public AlumneDTO create(AlumneDTO user) {
 		return toDTO(repository.save(toEntitat(user)));
 	}
 
 	public int delete(int id) {
-		Alumnes user = repository.findById(id).orElse(null);
+		Alumne user = repository.findById(id).orElse(null);
 		if (user != null) {
 			repository.delete(user);
 		}
 		return id;
 	}
 
-	public List<AlumnesDTO> findAll() {
-		List<Alumnes> allAlumnes = repository.findAll();
+	public List<AlumneDTO> findAll() {
+		List<Alumne> allAlumnes = repository.findAll();
 		try {
 			System.out.println(new ObjectMapper().writeValueAsString(allAlumnes));
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
-		List<AlumnesDTO> resultat = new ArrayList<>();
-		for (Alumnes a : allAlumnes) {
+		List<AlumneDTO> resultat = new ArrayList<>();
+		for (Alumne a : allAlumnes) {
 			resultat.add(toDTO(a));
 		}
 		return resultat;
 	}
 
-	public AlumnesDTO findById(int id) {
+	public AlumneDTO findById(int id) {
 		return toDTO(repository.findById(id).orElse(null));
 	}
 
-	public AlumnesDTO update(AlumnesDTO user) {
+	public AlumneDTO update(AlumneDTO user) {
 		return toDTO(repository.save(toEntitat(user)));
 	}
 
-	private Alumnes toEntitat(AlumnesDTO dto) {
-		Alumnes alumne = new Alumnes();
+	private Alumne toEntitat(AlumneDTO dto) {
+		Alumne alumne = new Alumne();
 		alumne.setId(dto.getId());
 		alumne.setEmail(dto.getEmail());
 		alumne.setFirstName(dto.getFirstName());
@@ -62,8 +62,8 @@ public class AlumnesService {
 		return alumne;
 	}
 
-	private AlumnesDTO toDTO(Alumnes alum) {
-		AlumnesDTO dto = new AlumnesDTO();
+	private AlumneDTO toDTO(Alumne alum) {
+		AlumneDTO dto = new AlumneDTO();
 		dto.setId(alum.getId());
 		dto.setEmail(alum.getEmail());
 		dto.setFirstName(alum.getFirstName());

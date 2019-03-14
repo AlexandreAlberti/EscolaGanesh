@@ -1,25 +1,10 @@
-package escolaganesh.entitats;
+package escolaganesh.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class AlumneDTO {
 
-@Entity
-@Table(name = "alumnes")
-public class Alumnes {
-
-	@Id
-	@Column
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column
 	private String firstName;
-	@Column
 	private String lastName;
-	@Column
 	private String email;
 
 	public int getId() {

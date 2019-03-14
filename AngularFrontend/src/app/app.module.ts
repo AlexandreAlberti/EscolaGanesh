@@ -3,17 +3,21 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { AlumnesComponent } from './alumnes/alumnes.component';
+import { AlumneComponent } from './alumne/alumne.component';
 import { AppRoutingModule } from './app.routing.module';
-import {AlumnesService} from './alumnes/alumnes.service';
+import {AlumneService} from './alumne/alumne.service';
 import {HttpClientModule} from "@angular/common/http";
-import {AddAlumnesComponent} from './alumnes/add-alumnes.component';
+import {AddAlumneComponent} from './alumne/add-alumne.component';
+import {EditAlumneComponent} from './alumne/edit-alumne.component';
+import {ViewAlumneComponent} from './alumne/view-alumne.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlumnesComponent,
-    AddAlumnesComponent
+    AlumneComponent,
+    AddAlumneComponent,
+    EditAlumneComponent,
+    ViewAlumneComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,7 @@ import {AddAlumnesComponent} from './alumnes/add-alumnes.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AlumnesService],
+  providers: [AlumneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

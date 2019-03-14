@@ -1,0 +1,30 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Alumne } from '../models/alumne.model';
+import { AlumneService } from './alumne.service';
+
+@Component({
+  templateUrl: './add-alumne.component.html'
+})
+export class AddAlumneComponent {
+
+  alumne: Alumne = new Alumne();
+
+  constructor(private router: Router, private alumneService: AlumneService) {
+
+  }
+
+  back(): void {
+    this.router.navigateByUrl('/alumne');
+  };
+
+  createAlumne(): void {
+    this.alumneService.createAlumne(this.alumne)
+        .subscribe( data => {
+          this.router.navigateByUrl('/alumne');
+        });
+
+  };
+
+}
