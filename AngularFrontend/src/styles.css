@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+.white {
+	color: rgb(255, 255, 255);
+}
+
+.mdl-layout__content {
+	padding: 15px;
+}
+
+.superDialeg{
+	width: 500px;
+	position:  fixed;
+	top: 300px;
+	left: 425px;
+}

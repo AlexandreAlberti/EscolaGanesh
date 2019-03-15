@@ -19,8 +19,8 @@ export class AlumneService {
     return this.http.get<Alumne[]>(this.alumneUrl);
   }
 
-  public deleteAlumne(alumne) {
-    return this.http.delete(this.alumneUrl + "/"+ alumne.id);
+  public deleteAlumne(alumneID) {
+    return this.http.delete(this.alumneUrl + "/"+ alumneID);
   }
 
   public createAlumne(alumne) {

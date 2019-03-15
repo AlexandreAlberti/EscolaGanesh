@@ -1,9 +1,21 @@
 <div class="container-fluid">
-<div class="col-md-offset-1">
-  <h1>
-    {{title}}!
-  </h1>
-</div>
-<router-outlet></router-outlet>
+	<div class="mdl-layout mdl-js-layout" style="background-image: url( http://lnx.escolaganesh.com/wp-content/uploads/2017/09/cropped-15873159_1224339754318461_384225347002031466_n-12.jpg );">
+	  <header class="mdl-layout__header mdl-layout__header--transparent">
+	    <div class="mdl-layout__header-row">
+	      <!-- Title -->
+	      <span class="mdl-layout-title">ARTS MARCIALS I GIMSUAUS</span>
+	      <!-- Add spacer, to align navigation to the right -->
+	      <div class="mdl-layout-spacer"></div>
+	      <!-- Navigation -->
+	      <nav class="mdl-navigation">
+	        <a class="mdl-navigation__link" (click)="ngOnInit();">Alumnes</a>
+	        <a class="mdl-navigation__link" href="">Link</a>
+	      </nav>
+	    </div>
+	  </header>
+	  <main class="mdl-layout__content">
+	  	<router-outlet></router-outlet>	
+	  </main>
+	</div>
 </div>
 
