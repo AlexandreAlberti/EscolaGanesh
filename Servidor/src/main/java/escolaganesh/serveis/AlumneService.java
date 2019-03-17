@@ -58,6 +58,20 @@ public class AlumneService {
 		alumne.setEmail(dto.getEmail());
 		alumne.setFirstName(dto.getFirstName());
 		alumne.setLastName(dto.getLastName());
+		alumne.setDireccio(dto.getDireccio());
+		alumne.setCid(dto.getCid());
+		alumne.setCuota(dto.getCuota());
+		alumne.setDadesBancaries(dto.getDadesBancaries());
+		alumne.setDni(dto.getDni());
+		alumne.setIoga(dto.isIoga());
+		alumne.setJjk(dto.isJjk());
+		alumne.setJjkInfantil(dto.isJjkInfantil());
+		alumne.setJjkIniciacio(dto.isJjkIniciacio());
+		alumne.setObservacions(dto.getObservacions());
+		alumne.setPoblacio(dto.getPoblacio());
+		alumne.setTelefon(dto.getTelefon());
+		alumne.setTkd(dto.isTkd());
+		alumne.setTotsival(dto.isTotsival());
 		return alumne;
 	}
 
@@ -67,6 +81,20 @@ public class AlumneService {
 		dto.setEmail(alum.getEmail());
 		dto.setFirstName(alum.getFirstName());
 		dto.setLastName(alum.getLastName());
+		dto.setDireccio(alum.getDireccio());
+		dto.setCid(alum.getCid());
+		dto.setCuota(alum.getCuota());
+		dto.setDadesBancaries(alum.getDadesBancaries());
+		dto.setDni(alum.getDni());
+		dto.setIoga(alum.isIoga());
+		dto.setJjk(alum.isJjk());
+		dto.setJjkInfantil(alum.isJjkInfantil());
+		dto.setJjkIniciacio(alum.isJjkIniciacio());
+		dto.setObservacions(alum.getObservacions());
+		dto.setPoblacio(alum.getPoblacio());
+		dto.setTelefon(alum.getTelefon());
+		dto.setTkd(alum.isTkd());
+		dto.setTotsival(alum.isTotsival());
 		return dto;
 	}
 }

@@ -44,3 +44,15 @@
 .separator-r {
 	border-right: solid 1px black;
 }
+
+.activitats .mdl-grid {
+	padding: 0px;
+}
+
+.activitats .mdl-grid .mdl-cell{
+	margin-top: 0px;
+}
+
+.mdl-card__supporting-text {
+	width: 98%;
+} 

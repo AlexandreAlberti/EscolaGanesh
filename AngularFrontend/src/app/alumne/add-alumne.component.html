@@ -3,24 +3,78 @@
 	<h4 class="mdl-card__title">{{formAction}} alumne</h4>
 	<div class="mdl-card__supporting-text">
 		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--4-col">
-				<div class="mdl-textfield mdl-js-textfield">
-					<span>Email:</span>
-					<input type="email" [(ngModel)]="alumne.email" class="mdl-textfield__input" type="text" id="email" name="email">
+			<div class="mdl-cell mdl-cell--3-col">
+				<span>Nom:</span>
+				<input [(ngModel)]="alumne.firstName" class="mdl-textfield__input" type="text" id="firstName" name="firstName">
+			</div>
+			<div class="mdl-cell mdl-cell--3-col">
+				<span>Cognoms:</span>
+				<input [(ngModel)]="alumne.lastName" class="mdl-textfield__input" type="text" id="lastName" name="lastName">
+			</div>
+			<div class="mdl-cell mdl-cell--2-col">
+				<span>Email:</span>
+				<input [(ngModel)]="alumne.email" class="mdl-textfield__input" type="text" id="email" name="email">
+			</div>
+			<div class="mdl-cell mdl-cell--2-col">
+				<span>DNI:</span>
+				<input [(ngModel)]="alumne.dni" class="mdl-textfield__input" type="text" id="dni" name="dni">
+			</div>			
+			<div class="mdl-cell mdl-cell--2-col">
+				<span>Identificador:</span>
+				<input [(ngModel)]="alumne.cid" class="mdl-textfield__input" type="text" id="cid" name="cid">
+			</div>			
+			<div class="mdl-cell mdl-cell--3-col">
+				<span>Telèfons:</span>
+				<input [(ngModel)]="alumne.telefon" class="mdl-textfield__input" type="text" id="telefon" name="telefon">
+			</div>			
+			<div class="mdl-cell mdl-cell--6-col">
+				<span>Adreça:</span>
+				<input [(ngModel)]="alumne.direccio" class="mdl-textfield__input" type="text" id="direccio" name="direccio">
+			</div>			
+			<div class="mdl-cell mdl-cell--3-col">
+				<span>Població:</span>
+				<input [(ngModel)]="alumne.poblacio" class="mdl-textfield__input" type="text" id="poblacio" name="poblacio">
+			</div>			
+			<div class="mdl-cell mdl-cell--1-col">
+				<span>Cuota:</span>
+				<input [(ngModel)]="alumne.cuota" class="mdl-textfield__input" type="text" id="cuota" name="cuota">
+			</div>			
+			<div class="mdl-cell mdl-cell--3-col">
+				<span>Dades Bancàries:</span>
+				<input [(ngModel)]="alumne.dadesBancaries" class="mdl-textfield__input" type="text" id="dadesBancaries" name="dadesBancaries">
+			</div>			
+			<div class="mdl-cell mdl-cell--4-col activitats">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--2-col">
+						<span>Totsival</span>
+						<input [(ngModel)]="alumne.totsival" class="mdl-textfield__input" type="checkbox" id="totsival" name="totsival">
+					</div>
+					<div class="mdl-cell mdl-cell--2-col">
+						<span>TKD</span>
+						<input [(ngModel)]="alumne.tkd" class="mdl-textfield__input" type="checkbox" id="tkd" name="tkd">
+					</div>
+					<div class="mdl-cell mdl-cell--2-col">
+						<span>JJK</span>
+						<input [(ngModel)]="alumne.jjk" class="mdl-textfield__input" type="checkbox" id="jjk" name="jjk">
+					</div>
+					<div class="mdl-cell mdl-cell--2-col">
+						<span>JJK Inf.</span>
+						<input [(ngModel)]="alumne.jjkInfantil" class="mdl-textfield__input" type="checkbox" id="jjkInfantil" name="jjkInfantil">
+					</div>
+					<div class="mdl-cell mdl-cell--2-col">
+						<span>Iniciació</span>
+						<input [(ngModel)]="alumne.jjkIniciacio" class="mdl-textfield__input" type="checkbox" id="jjkIniciacio" name="jjkIniciacio">
+					</div>
+					<div class="mdl-cell mdl-cell--2-col">
+						<span>Ioga</span>
+						<input [(ngModel)]="alumne.ioga" class="mdl-textfield__input" type="checkbox" id="ioga" name="ioga">
+					</div>
 				</div>
 			</div>
 			<div class="mdl-cell mdl-cell--4-col">
-				<div class="mdl-textfield mdl-js-textfield">
-					<span>Nom:</span>
-					<input type="text" [(ngModel)]="alumne.firstName" class="mdl-textfield__input" type="text" id="firstName" name="firstName">
-				</div>
-			</div>
-			<div class="mdl-cell mdl-cell--4-col">
-				<div class="mdl-textfield mdl-js-textfield">
-					<span>Cognoms:</span>
-					<input type="text" [(ngModel)]="alumne.lastName" class="mdl-textfield__input" type="text" id="lastName" name="lastName">
-				</div>
-			</div>
+				<span>Observacions:</span>
+				<input [(ngModel)]="alumne.observacions" class="mdl-textfield__input" type="text" id="observacions" name="observacions">
+			</div>			
 		</div>
 	</div>
     <div class="mdl-card__actions mdl-card--border">
