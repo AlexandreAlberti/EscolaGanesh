@@ -3,13 +3,44 @@
 	color: rgb(255, 255, 255);
 }
 
+.blue {
+	color: rgb(25, 25, 255);
+}
+
 .mdl-layout__content {
 	padding: 15px;
 }
 
-.superDialeg{
-	width: 500px;
-	position:  fixed;
+.rounded {
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+}
+
+.shadowed {
+	-webkit-box-shadow: 0px 0px 25px 15px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 25px 15px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 25px 15px rgba(0, 0, 0, 0.75);
+}
+
+.superDialeg {
+	position: fixed;
 	top: 300px;
 	left: 425px;
+	padding: 25px;
+	width: 500px;
+}
+
+.superDialeg h4.mdl-card__title {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.actionField {
+	min-width: 0px !important;
+	padding: 0 0px !important;
+}
+
+.separator-r {
+	border-right: solid 1px black;
 }

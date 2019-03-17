@@ -1,24 +1,31 @@
-<div class="">
-	<span class="mdl-layout-title white">Add Alumne</span>
-	<div class="mdl-cell mdl-cell--3-col">
-		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="back()">Tornar</button>
-		<span>&nbsp;&nbsp;&nbsp;</span>
-		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="createAlumne()">Guardar</button>		
-	</div>
-	<form>
+<div class="mdl-grid">
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col rounded">
+	<h4 class="mdl-card__title">{{formAction}} alumne</h4>
+	<div class="mdl-card__supporting-text">
 		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<div class="mdl-cell mdl-cell--4-col">
+				<div class="mdl-textfield mdl-js-textfield">
+					<span>Email:</span>
 					<input type="email" [(ngModel)]="alumne.email" class="mdl-textfield__input" type="text" id="email" name="email">
-					<label class="mdl-textfield__label" for="email">Email address</label>
+				</div>
 			</div>
-			<div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<div class="mdl-cell mdl-cell--4-col">
+				<div class="mdl-textfield mdl-js-textfield">
+					<span>Nom:</span>
 					<input type="text" [(ngModel)]="alumne.firstName" class="mdl-textfield__input" type="text" id="firstName" name="firstName">
-					<label class="mdl-textfield__label" for="firstName">First Name</label>
+				</div>
 			</div>
-			<div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<div class="mdl-cell mdl-cell--4-col">
+				<div class="mdl-textfield mdl-js-textfield">
+					<span>Cognoms:</span>
 					<input type="text" [(ngModel)]="alumne.lastName" class="mdl-textfield__input" type="text" id="lastName" name="lastName">
-					<label class="mdl-textfield__label" for="lastName">Last Name</label>
+				</div>
 			</div>
 		</div>
-	</form>
-</div>
+	</div>
+    <div class="mdl-card__actions mdl-card--border">
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="back()">Tornar</button>
+		<span>&nbsp;&nbsp;&nbsp;</span>
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="saveAlumne()">Guardar</button>		
+	</div>
+</div></div>

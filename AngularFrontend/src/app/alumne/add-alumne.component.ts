@@ -10,7 +10,7 @@ import { AlumneService } from './alumne.service';
 export class AddAlumneComponent {
 
   alumne: Alumne = new Alumne();
-
+  formAction: string = "Afegir nou";
   constructor(private router: Router, private alumneService: AlumneService) {
 
   }
@@ -19,7 +19,7 @@ export class AddAlumneComponent {
     this.router.navigateByUrl('/alumne');
   };
 
-  createAlumne(): void {
+  saveAlumne(): void {
     this.alumneService.createAlumne(this.alumne)
         .subscribe( data => {
           this.router.navigateByUrl('/alumne');

@@ -1,33 +1,44 @@
-<div>
-	<span class="mdl-layout-title white">Llistat Alumnes</span>
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--12-col">
+		<span class="mdl-layout-title white">Llistat Alumnes</span>
+	</div>
 	<div class="mdl-cell mdl-cell--3-col">
-		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="goCreateAlumne()">Afegir</button>
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="goCreateAlumne()">Afegir</button>
+	</div>
+	<table class="mdl-cell mdl-cell--3-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
+		<tbody>
+			<tr>
+				<td><span>Cercador per nom/cognom</span></td>
+				<td><input [(ngModel)]="cercador" class="mdl-textfield__input" type="text"></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="mdl-cell mdl-cell--3-col">
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="cercaAlumnes()">Cercar</button>
 	</div>
 	
-	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+	<table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
 	  <thead>
 	  <tr>
 	    <th class="hidden">Id</th>
 	    <th class="mdl-data-table__cell--non-numeric">FirstName</th>
 	    <th class="mdl-data-table__cell--non-numeric">LastName</th>
-	    <th class="mdl-data-table__cell--non-numeric">Email</th>
 	    <th class="mdl-data-table__cell--non-numeric">Action</th>
 	  </tr>
 	  </thead>
 	  <tbody>
 	  <tr *ngFor="let alumne of alumnes">
 	    <td class="hidden">{{alumne.id}}</td>
-	    <td class="mdl-data-table__cell--non-numeric">{{alumne.firstName}}</td>
-	    <td class="mdl-data-table__cell--non-numeric">{{alumne.lastName}}</td>
-	    <td class="mdl-data-table__cell--non-numeric">{{alumne.email}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{alumne.firstName}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{alumne.lastName}}</td>
 	    <td class="mdl-data-table__cell--non-numeric">
-	      <a class="mdl-button mdl-js-button" (click)="goViewAlumne(alumne)">
+	      <a class="mdl-button mdl-js-button actionField" (click)="goViewAlumne(alumne)">
 		    <i class="material-icons">remove_red_eye</i>
 		  </a>
-	      <a class="mdl-button mdl-js-button" (click)="goEditAlumne(alumne)">
+	      <a class="mdl-button mdl-js-button actionField" (click)="goEditAlumne(alumne)">
 		    <i class="material-icons">edit</i>
 		  </a>
-	      <a class="mdl-button mdl-js-button mat-raised-button" (click)="openDialog(alumne)">
+	      <a class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialog(alumne)">
 		    <i class="material-icons">delete</i>
 		  </a>
 		 </td>
@@ -36,7 +47,7 @@
 	</table>
 </div>
 
-<div class="superDialeg demo-card-event mdl-card mdl-shadow--2dp" *ngIf="!dialogShown">
+<div class="superDialeg rounded shadowed demo-card-event mdl-card mdl-shadow--2dp" *ngIf="!dialogShown">
 	<h4 class="mdl-card__title">Confirmació</h4>
 	<div class="mdl-card__supporting-text">
       <p>
@@ -44,7 +55,8 @@
 	  </p>
 	</div>
     <div class="mdl-card__actions mdl-card--border">
-	    <button class="mdl-button close" (click)="closeDialog()">Cancelar</button>
-	    <button class="mdl-button" (click)="deleteAlumne(selectedAlumne.id)">Esborrar</button>
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close" (click)="closeDialog()">Cancelar</button>
+	    &nbsp;&nbsp;&nbsp;
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="deleteAlumne(selectedAlumne.id)">Esborrar</button>
 	</div>
 </div>

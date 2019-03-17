@@ -1,22 +1,28 @@
-<div class="">
-	<span class="mdl-layout-title white">View Alumne</span>
-	<div class="mdl-cell mdl-cell--3-col">
-		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="back()">Tornar</button>
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--12-col">
+		<span class="mdl-layout-title white">Veure Dades Alumne</span>
 	</div>
-	<form>
-		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input type="email" [(ngModel)]="alumne.email" class="mdl-textfield__input" type="text" id="email" name="email" disabled>
-					<label class="mdl-textfield__label" for="email">Email address</label>
-			</div>
-			<div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input type="text" [(ngModel)]="alumne.firstName" class="mdl-textfield__input" type="text" id="firstName" name="firstName" disabled>
-					<label class="mdl-textfield__label" for="firstName">First Name</label>
-			</div>
-			<div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input type="text" [(ngModel)]="alumne.lastName" class="mdl-textfield__input" type="text" id="lastName" name="lastName" disabled>
-					<label class="mdl-textfield__label" for="lastName">Last Name</label>
-			</div>
-		</div>
-	</form>
+	<div class="mdl-cell mdl-cell--3-col">
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="back()">Tornar</button>
+	</div>
+	<table class="rounded mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+		<thead>
+			<tr>
+				<th colspan=6>
+					Dades de l'alumne
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="mdl-data-table__cell--non-numeric"><b>Nom:</b></td>
+				<td class="blue separator-r">{{alumne.firstName}}</td>
+				<td class="mdl-data-table__cell--non-numeric"><b>Cognoms:</b></td>
+				<td class="blue separator-r">{{alumne.lastName}}</td>
+				<td class="mdl-data-table__cell--non-numeric"><b>Email:</b></td>
+				<td class="blue">{{alumne.email}}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
+s

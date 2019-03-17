@@ -15,8 +15,8 @@ export class AlumneService {
 
   private alumneUrl = 'http://localhost:8080/alumne';
 
-  public getAlumnes() {
-    return this.http.get<Alumne[]>(this.alumneUrl);
+  public getAlumnes(cercador) {
+    return this.http.get<Alumne[]>(this.alumneUrl + "?cerca=" + cercador);
   }
 
   public deleteAlumne(alumneID) {

@@ -6,12 +6,12 @@ import { Alumne } from '../models/alumne.model';
 import { AlumneService } from './alumne.service';
 
 @Component({
-  templateUrl: './edit-alumne.component.html'
+  templateUrl: './add-alumne.component.html'
 })
 export class EditAlumneComponent {
 
   alumne: Alumne = new Alumne();
-
+  formAction: string = "Editar";
   constructor(private route: ActivatedRoute, private router: Router, private alumneService: AlumneService) {
 
   }
@@ -27,7 +27,7 @@ export class EditAlumneComponent {
       });
   };
 
-  editAlumne(): void {
+  saveAlumne(): void {
     this.alumneService.editAlumne(this.alumne)
         .subscribe( data => {
           this.router.navigateByUrl('/alumne');

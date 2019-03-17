@@ -6,9 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import escolaganesh.entitats.Alumne;
 import escolaganesh.models.AlumneDTO;
 import escolaganesh.repositoris.AlumneRepository;
@@ -31,13 +28,15 @@ public class AlumneService {
 		return id;
 	}
 
-	public List<AlumneDTO> findAll() {
-		List<Alumne> allAlumnes = repository.findAll();
-		try {
-			System.out.println(new ObjectMapper().writeValueAsString(allAlumnes));
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
+	public List<AlumneDTO> findAll(String cerca) {
+		
+		List<Alumne> allAlumnes = null;
+		if (cerca == null) {
+			allAlumnes = repository.findAll();
+		} else {
+			allAlumnes = repository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(cerca,cerca);
 		}
+		
 		List<AlumneDTO> resultat = new ArrayList<>();
 		for (Alumne a : allAlumnes) {
 			resultat.add(toDTO(a));

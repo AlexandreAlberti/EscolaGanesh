@@ -13,19 +13,24 @@ export class AlumneComponent implements OnInit {
 
   alumnes: Alumne[];
   dialogShown: boolean = true;
-  selectedAlumne: Alumne = Alumne;
-
+  selectedAlumne: Alumne = new Alumne();
+  cercador : string = "";
+   
   constructor(private router: Router, private alumneService: AlumneService) {
 
   }
 
   ngOnInit() {
     this.dialogShown = true;
-    this.alumneService.getAlumnes()
+    this.cercaAlumnes();
+  };
+
+  cercaAlumnes(){
+    this.alumneService.getAlumnes(this.cercador)
       .subscribe( data => {
         this.alumnes = data;
       });
-  };
+  }
 
   deleteAlumne(id: string): void {
     this.alumneService.deleteAlumne(id)
