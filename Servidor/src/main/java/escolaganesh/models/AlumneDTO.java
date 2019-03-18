@@ -1,5 +1,7 @@
 package escolaganesh.models;
 
+import java.util.List;
+
 public class AlumneDTO {
 
 	private int id;
@@ -20,7 +22,11 @@ public class AlumneDTO {
 	private Boolean ioga;
 	private Double cuota;
 	private String observacions;
+	private Boolean actiu;
 
+	private List<LlicenciaDTO> llicencies;
+	private boolean llicenciaPagada = false;
+	
 	public int getId() {
 		return id;
 	}
@@ -163,5 +169,29 @@ public class AlumneDTO {
 
 	public void setObservacions(String observacions) {
 		this.observacions = observacions;
+	}
+
+	public List<LlicenciaDTO> getLlicencies() {
+		return llicencies;
+	}
+
+	public void setLlicencies(List<LlicenciaDTO> llicencies) {
+		this.llicencies = llicencies;
+	}
+
+	public boolean isLlicenciaPagada() {
+		return llicenciaPagada;
+	}
+
+	public void setLlicenciaPagada(boolean llicenciaPagada) {
+		this.llicenciaPagada = llicenciaPagada;
+	}
+	
+	public Boolean isActiu() {
+		return actiu;
+	}
+
+	public void setActiu(Boolean actiu) {
+		this.actiu = actiu;
 	}
 }

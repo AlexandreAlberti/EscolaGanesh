@@ -1,13 +1,17 @@
 package escolaganesh.serveis;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import escolaganesh.entitats.Alumne;
+import escolaganesh.entitats.Llicencia;
 import escolaganesh.models.AlumneDTO;
+import escolaganesh.models.LlicenciaDTO;
 import escolaganesh.repositoris.AlumneRepository;
 
 @Service
@@ -16,6 +20,10 @@ public class AlumneService {
 	@Autowired
 	private AlumneRepository repository;
 
+	@Autowired
+	private LlicenciaService llicenciaService;
+
+	
 	public AlumneDTO create(AlumneDTO user) {
 		return toDTO(repository.save(toEntitat(user)));
 	}
@@ -49,7 +57,10 @@ public class AlumneService {
 	}
 
 	public AlumneDTO update(AlumneDTO user) {
-		return toDTO(repository.save(toEntitat(user)));
+		Alumne entitat = toEntitat(user);
+		Alumne old = repository.findById(entitat.getId()).get();
+		entitat.setLlicencies(old.getLlicencies());
+		return toDTO(repository.save(entitat));
 	}
 
 	private Alumne toEntitat(AlumneDTO dto) {
@@ -72,6 +83,7 @@ public class AlumneService {
 		alumne.setTelefon(dto.getTelefon());
 		alumne.setTkd(dto.isTkd());
 		alumne.setTotsival(dto.isTotsival());
+		alumne.setActiu(dto.isActiu());
 		return alumne;
 	}
 
@@ -95,6 +107,16 @@ public class AlumneService {
 		dto.setTelefon(alum.getTelefon());
 		dto.setTkd(alum.isTkd());
 		dto.setTotsival(alum.isTotsival());
+		dto.setActiu(alum.isActiu());
+		List<LlicenciaDTO> llics = new ArrayList<>();
+		int year = new GregorianCalendar().get(Calendar.YEAR);
+		boolean llicenciaOkAnyActual = false;
+		for (Llicencia l : alum.getLlicencies()) {
+			llics.add(llicenciaService.toDTO(l, alum.getId()));
+			llicenciaOkAnyActual |= l.getAny().equals(year);
+		}
+		dto.setLlicenciaPagada(llicenciaOkAnyActual);
+		dto.setLlicencies(llics);
 		return dto;
 	}
 }

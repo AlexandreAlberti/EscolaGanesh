@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Alumne } from '../models/alumne.model';
+import { Llicencia } from '../models/llicencia.model';
 import { AlumneService } from './alumne.service';
 
 @Component({

@@ -1,10 +1,13 @@
 package escolaganesh.entitats;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -49,6 +52,11 @@ public class Alumne {
 	private Double cuota;
 	@Column
 	private String observacions;
+	@Column
+	private Boolean actiu;
+
+	@OneToMany(mappedBy = "alumne")
+	private List<Llicencia> llicencies;
 
 	public int getId() {
 		return id;
@@ -192,6 +200,22 @@ public class Alumne {
 
 	public void setIoga(Boolean ioga) {
 		this.ioga = ioga;
+	}
+
+	public List<Llicencia> getLlicencies() {
+		return llicencies;
+	}
+
+	public void setLlicencies(List<Llicencia> llicencies) {
+		this.llicencies = llicencies;
+	}
+
+	public Boolean isActiu() {
+		return actiu;
+	}
+
+	public void setActiu(Boolean actiu) {
+		this.actiu = actiu;
 	}
 
 }

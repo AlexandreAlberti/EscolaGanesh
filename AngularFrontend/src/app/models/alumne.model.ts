@@ -1,3 +1,5 @@
+import { Llicencia } from '../models/llicencia.model';
+
 export class Alumne {
 
   id: string;
@@ -18,5 +20,6 @@ export class Alumne {
   ioga: boolean;
   cuota: number;
   observacions: string;
-  
+  llicencies: Llicencia[];
+  llicenciaPagada: boolean;
 }

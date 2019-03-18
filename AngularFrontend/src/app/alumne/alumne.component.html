@@ -21,9 +21,10 @@
 	  <thead>
 	  <tr>
 	    <th class="hidden">Id</th>
-	    <th class="mdl-data-table__cell--non-numeric">FirstName</th>
-	    <th class="mdl-data-table__cell--non-numeric">LastName</th>
-	    <th class="mdl-data-table__cell--non-numeric">Action</th>
+	    <th class="mdl-data-table__cell--non-numeric">Nom</th>
+	    <th class="mdl-data-table__cell--non-numeric">Cognoms</th>
+	    <th class="mdl-data-table__cell--non-numeric">Llicencia Pagada</th>
+	    <th class="mdl-data-table__cell--non-numeric">Accions</th>
 	  </tr>
 	  </thead>
 	  <tbody>
@@ -31,6 +32,7 @@
 	    <td class="hidden">{{alumne.id}}</td>
 	    <td class="blue mdl-data-table__cell--non-numeric">{{alumne.firstName}}</td>
 	    <td class="blue mdl-data-table__cell--non-numeric">{{alumne.lastName}}</td>
+	    <td class="{{alumne.llicenciaPagada ? 'blue' : 'red'}} mdl-data-table__cell--non-numeric">{{alumne.actiu ? ((alumne.tkd || alumne.jjk || alumne.totsival || alumne.jjkInfantil || alumne.jjkIniciacio) ? (alumne.llicenciaPagada ? 'SÍ' : 'NO') : '' ) : ''}}</td>
 	    <td class="mdl-data-table__cell--non-numeric">
 	      <a class="mdl-button mdl-js-button actionField" (click)="goViewAlumne(alumne)">
 		    <i class="material-icons">remove_red_eye</i>

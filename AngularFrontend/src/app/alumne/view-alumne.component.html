@@ -24,5 +24,50 @@
 			</tr>
 		</tbody>
 	</table>
+	<table class="rounded mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--3-col">
+		<thead>
+			<tr>
+				<th colspan=6>
+					Historial de Llicencies
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let llicencia of alumne.llicencies">
+				<td class="mdl-data-table__cell--non-numeric"><b>Any:</b></td>
+				<td class="blue">{{llicencia.any}}</td>
+				<td class="mdl-data-table__cell--non-numeric">
+			      <a class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialog(llicencia.id,llicencia.any)">
+				    <i class="material-icons">delete</i>
+				  </a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="mdl-cell mdl-cell--9-col"></div>
+	<table class="mdl-cell mdl-cell--3-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
+		<tbody>
+			<tr>
+				<td><span>Afegir llicencia</span></td>
+				<td><input [(ngModel)]="novaLlicencia" class="mdl-textfield__input" type="number"></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="mdl-cell mdl-cell--3-col">
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="creaLlicencia()">Crear</button>
+	</div>
 </div>
-s
+
+<div class="superDialeg rounded shadowed demo-card-event mdl-card mdl-shadow--2dp" *ngIf="!dialogShown">
+	<h4 class="mdl-card__title">Confirmació</h4>
+	<div class="mdl-card__supporting-text">
+      <p>
+		Segur que vols esborrar la llicencia de l'alumne per l'any {{selectedLlicencia}}
+	  </p>
+	</div>
+    <div class="mdl-card__actions mdl-card--border">
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close" (click)="closeDialog()">Cancelar</button>
+	    &nbsp;&nbsp;&nbsp;
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="deleteLlicencia(selectedLlicencia)">Esborrar</button>
+	</div>
+</div>

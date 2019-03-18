@@ -16,11 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mysql.jdbc.StringUtils;
 
 import escolaganesh.models.AlumneDTO;
+import escolaganesh.models.LlicenciaDTO;
 import escolaganesh.serveis.AlumneService;
+import escolaganesh.serveis.LlicenciaService;
 
 @Controller
 @RequestMapping("/alumne")
@@ -29,6 +30,8 @@ public class AlumneController {
 
 	@Autowired
 	private AlumneService alumneService;
+	@Autowired
+	private LlicenciaService llicenciaService;
 
 	@PostMapping
 	@ResponseBody
@@ -62,9 +65,20 @@ public class AlumneController {
 		if (StringUtils.isEmptyOrWhitespaceOnly(cerca)) {
 			cerca = null;
 		}
-		System.out.println(cerca);
 		List<AlumneDTO> allAlumnes = alumneService.findAll(cerca);
-		System.out.println(new ObjectMapper().writeValueAsString(allAlumnes));
 		return allAlumnes;
 	}
+
+	@PostMapping("/{id}/llicencia")
+	@ResponseBody
+	public LlicenciaDTO createLlicencia(@RequestBody LlicenciaDTO user) {
+		return llicenciaService.create(user);
+	}
+
+	@DeleteMapping(path = { "/{id}/llicencia/{idLlicencia}" })
+	@ResponseBody
+	public int deleteLlicencia(@PathVariable("id") int id, @PathVariable("idLlicencia") int idLlicencia) {
+		return llicenciaService.delete(idLlicencia);
+	}
+
 }
