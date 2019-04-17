@@ -1,0 +1,39 @@
+<div class="mdl-grid">
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col rounded">
+	<h4 class="mdl-card__title">{{formAction}} material</h4>
+	<div class="mdl-card__supporting-text">
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--5-col">
+				<span>Descripció:</span>
+				<input [(ngModel)]="material.descripcio" class="mdl-textfield__input" type="text" id="descripcio" name="descripcio">
+			</div>
+			<div class="mdl-cell mdl-cell--2-col">
+				<span>Tipus:</span>
+				<select type="number" class="mdl-textfield__input" [(ngModel)]="material.tipus">
+				  <option *ngFor="let tip of tipus" [ngValue]="tip.id">{{tip.nom}}</option>
+				</select>
+			</div>			
+			<div class="mdl-cell mdl-cell--2-col">
+				<span>Cost (€):</span>
+				<input [(ngModel)]="material.cost" class="mdl-textfield__input" type="text" id="cost" name="cost">
+			</div>			
+			<div class="mdl-cell mdl-cell--5-col">
+				<span>Observacions:</span>
+				<input [(ngModel)]="material.observacions" class="mdl-textfield__input" type="text" id="observacions" name="observacions">
+			</div>
+			<div class="mdl-cell mdl-cell--2-col">
+				<span>S'ha de comprar</span>
+				<input [(ngModel)]="material.comprable" class="mdl-textfield__input" type="checkbox" id="comprable" name="comprable">
+			</div>
+			<div class="mdl-cell mdl-cell--2-col">
+				<span>Quantitat en Stock:</span>
+				<input [(ngModel)]="material.stock" class="mdl-textfield__input" type="text" id="stock" name="stock">
+			</div>			
+		</div>
+	</div>
+    <div class="mdl-card__actions mdl-card--border">
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="back()">Tornar</button>
+		<span>&nbsp;&nbsp;&nbsp;</span>
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="saveMaterial()">Guardar</button>		
+	</div>
+</div></div>

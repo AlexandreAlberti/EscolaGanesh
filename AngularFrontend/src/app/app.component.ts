@@ -18,4 +18,12 @@ export class AppComponent {
     this.router.navigateByUrl('/alumne');
   };
   
+  goAlumnes() {
+    this.router.navigateByUrl('/alumne');
+  };
+  
+  goMaterial() {
+    this.router.navigateByUrl('/material');
+  };
+  
 }

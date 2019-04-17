@@ -1,4 +1,5 @@
 import { Llicencia } from '../models/llicencia.model';
+import { Rebut } from '../models/rebut.model';
 
 export class Alumne {
 
@@ -22,4 +23,6 @@ export class Alumne {
   observacions: string;
   llicencies: Llicencia[];
   llicenciaPagada: boolean;
+  rebuts: Rebut[];
+  rebutPagat: boolean;
 }

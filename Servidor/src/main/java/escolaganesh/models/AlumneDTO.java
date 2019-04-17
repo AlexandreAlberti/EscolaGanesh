@@ -25,7 +25,9 @@ public class AlumneDTO {
 	private Boolean actiu;
 
 	private List<LlicenciaDTO> llicencies;
+	private List<RebutDTO> rebuts;
 	private boolean llicenciaPagada = false;
+	private boolean rebutPagat = false;
 	
 	public int getId() {
 		return id;
@@ -193,5 +195,21 @@ public class AlumneDTO {
 
 	public void setActiu(Boolean actiu) {
 		this.actiu = actiu;
+	}
+
+	public List<RebutDTO> getRebuts() {
+		return rebuts;
+	}
+
+	public void setRebuts(List<RebutDTO> rebuts) {
+		this.rebuts = rebuts;
+	}
+
+	public boolean isRebutPagat() {
+		return rebutPagat;
+	}
+
+	public void setRebutPagat(boolean rebutPagat) {
+		this.rebutPagat = rebutPagat;
 	}
 }

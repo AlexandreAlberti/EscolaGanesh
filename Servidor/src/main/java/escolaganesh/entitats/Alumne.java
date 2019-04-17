@@ -57,6 +57,9 @@ public class Alumne {
 
 	@OneToMany(mappedBy = "alumne")
 	private List<Llicencia> llicencies;
+	
+	@OneToMany(mappedBy = "alumne")
+	private List<Rebut> rebuts;
 
 	public int getId() {
 		return id;
@@ -216,6 +219,14 @@ public class Alumne {
 
 	public void setActiu(Boolean actiu) {
 		this.actiu = actiu;
+	}
+
+	public List<Rebut> getRebuts() {
+		return rebuts;
+	}
+
+	public void setRebuts(List<Rebut> rebuts) {
+		this.rebuts = rebuts;
 	}
 
 }

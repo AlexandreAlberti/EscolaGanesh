@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 
 import escolaganesh.entitats.Alumne;
 import escolaganesh.entitats.Llicencia;
+import escolaganesh.entitats.Rebut;
 import escolaganesh.models.AlumneDTO;
 import escolaganesh.models.LlicenciaDTO;
+import escolaganesh.models.RebutDTO;
 import escolaganesh.repositoris.AlumneRepository;
 
 @Service
@@ -22,6 +24,9 @@ public class AlumneService {
 
 	@Autowired
 	private LlicenciaService llicenciaService;
+	
+	@Autowired
+	private RebutService rebutService;
 
 	
 	public AlumneDTO create(AlumneDTO user) {
@@ -60,6 +65,7 @@ public class AlumneService {
 		Alumne entitat = toEntitat(user);
 		Alumne old = repository.findById(entitat.getId()).get();
 		entitat.setLlicencies(old.getLlicencies());
+		entitat.setRebuts(old.getRebuts());
 		return toDTO(repository.save(entitat));
 	}
 
@@ -110,6 +116,7 @@ public class AlumneService {
 		dto.setActiu(alum.isActiu());
 		List<LlicenciaDTO> llics = new ArrayList<>();
 		int year = new GregorianCalendar().get(Calendar.YEAR);
+		int mes = new GregorianCalendar().get(Calendar.MONTH) + 1;
 		boolean llicenciaOkAnyActual = false;
 		for (Llicencia l : alum.getLlicencies()) {
 			llics.add(llicenciaService.toDTO(l, alum.getId()));
@@ -117,6 +124,14 @@ public class AlumneService {
 		}
 		dto.setLlicenciaPagada(llicenciaOkAnyActual);
 		dto.setLlicencies(llics);
+		List<RebutDTO> rebs = new ArrayList<>();
+		boolean rebutOkAnyMesActual = false;
+		for (Rebut r : alum.getRebuts()) {
+			rebs.add(rebutService.toDTO(r, alum.getId()));
+			rebutOkAnyMesActual |= (r.getAny().equals(year) && r.getMes().equals(mes));
+		}
+		dto.setRebutPagat(rebutOkAnyMesActual);
+		dto.setRebuts(rebs);
 		return dto;
 	}
 }

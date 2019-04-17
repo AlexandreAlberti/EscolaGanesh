@@ -1,0 +1,67 @@
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--12-col">
+		<span class="mdl-layout-title white">Llistat Materials</span>
+	</div>
+	<div class="mdl-cell mdl-cell--3-col">
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="goCreateMaterial()">Afegir</button>
+	</div>
+	<table class="mdl-cell mdl-cell--3-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
+		<tbody>
+			<tr>
+				<td><span>Cercador per descripció</span></td>
+				<td><input [(ngModel)]="cercador" class="mdl-textfield__input" type="text"></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="mdl-cell mdl-cell--3-col">
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="cercaMaterials()">Cercar</button>
+	</div>
+	
+	<table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
+	  <thead>
+	  <tr>
+	    <th class="hidden">Id</th>
+	    <th class="mdl-data-table__cell--non-numeric">Descripció</th>
+	    <th class="mdl-data-table__cell--non-numeric">Cost</th>
+	    <th class="mdl-data-table__cell--non-numeric">Tipus</th>
+	    <th class="mdl-data-table__cell--non-numeric">S'ha de comprar?</th>
+	    <th class="mdl-data-table__cell--non-numeric">Stock</th>
+	    <th class="mdl-data-table__cell--non-numeric">Observacions</th>
+	    <th class="mdl-data-table__cell--non-numeric">Accions</th>
+	  </tr>
+	  </thead>
+	  <tbody>
+	  <tr *ngFor="let material of materials">
+	    <td class="hidden">{{material.id}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{material.descripcio}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{material.cost}}€</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{tipus[material.tipus].nom}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{material.comprable ? 'Sí' : 'No'}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{material.comprable ? material.stock : ' '}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{material.observacions}}</td>
+	    <td class="mdl-data-table__cell--non-numeric">
+	      <a class="mdl-button mdl-js-button actionField" (click)="goEditMaterial(material)">
+		    <i class="material-icons">edit</i>
+		  </a>
+	      <a class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialog(material)">
+		    <i class="material-icons">delete</i>
+		  </a>
+		 </td>
+	  </tr>
+	  </tbody>
+	</table>
+</div>
+
+<div class="superDialeg rounded shadowed demo-card-event mdl-card mdl-shadow--2dp" *ngIf="!dialogShown">
+	<h4 class="mdl-card__title">Confirmació</h4>
+	<div class="mdl-card__supporting-text">
+      <p>
+		Segur que vols esborrar el material {{selectedMaterial.descripcio}}
+	  </p>
+	</div>
+    <div class="mdl-card__actions mdl-card--border">
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close" (click)="closeDialog()">Cancelar</button>
+	    &nbsp;&nbsp;&nbsp;
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="deleteMaterial(selectedMaterial.id)">Esborrar</button>
+	</div>
+</div>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Alumne } from '../models/alumne.model';
 import { Llicencia } from '../models/llicencia.model';
+import { Rebut } from '../models/rebut.model';
 import { AlumneService } from './alumne.service';
 
 @Component({

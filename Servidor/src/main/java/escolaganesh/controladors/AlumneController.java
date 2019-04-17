@@ -20,8 +20,10 @@ import com.mysql.jdbc.StringUtils;
 
 import escolaganesh.models.AlumneDTO;
 import escolaganesh.models.LlicenciaDTO;
+import escolaganesh.models.RebutDTO;
 import escolaganesh.serveis.AlumneService;
 import escolaganesh.serveis.LlicenciaService;
+import escolaganesh.serveis.RebutService;
 
 @Controller
 @RequestMapping("/alumne")
@@ -32,6 +34,8 @@ public class AlumneController {
 	private AlumneService alumneService;
 	@Autowired
 	private LlicenciaService llicenciaService;
+	@Autowired
+	private RebutService rebutService;
 
 	@PostMapping
 	@ResponseBody
@@ -79,6 +83,18 @@ public class AlumneController {
 	@ResponseBody
 	public int deleteLlicencia(@PathVariable("id") int id, @PathVariable("idLlicencia") int idLlicencia) {
 		return llicenciaService.delete(idLlicencia);
+	}
+
+	@PostMapping("/{id}/rebut")
+	@ResponseBody
+	public RebutDTO createRebut(@RequestBody RebutDTO rebut) {
+		return rebutService.create(rebut);
+	}
+
+	@DeleteMapping(path = { "/{id}/rebut/{idRebut}" })
+	@ResponseBody
+	public int deleteRebut(@PathVariable("id") int id, @PathVariable("idRebut") int idRebut) {
+		return rebutService.delete(idRebut);
 	}
 
 }
