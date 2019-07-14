@@ -25,9 +25,10 @@ public class AlumneDTO {
 	private Boolean actiu;
 
 	private List<LlicenciaDTO> llicencies;
-	private List<RebutDTO> rebuts;
+	private List<MensualitatDTO> mensualitats;
 	private boolean llicenciaPagada = false;
-	private boolean rebutPagat = false;
+	private boolean mensualitatPagat = false;
+	private double balanc;
 	
 	public int getId() {
 		return id;
@@ -197,19 +198,27 @@ public class AlumneDTO {
 		this.actiu = actiu;
 	}
 
-	public List<RebutDTO> getRebuts() {
-		return rebuts;
+	public List<MensualitatDTO> getMensualitats() {
+		return mensualitats;
 	}
 
-	public void setRebuts(List<RebutDTO> rebuts) {
-		this.rebuts = rebuts;
+	public void setMensualitats(List<MensualitatDTO> mensualitats) {
+		this.mensualitats = mensualitats;
 	}
 
-	public boolean isRebutPagat() {
-		return rebutPagat;
+	public boolean isMensualitatPagat() {
+		return mensualitatPagat;
 	}
 
-	public void setRebutPagat(boolean rebutPagat) {
-		this.rebutPagat = rebutPagat;
+	public void setMensualitatPagat(boolean mensualitatPagat) {
+		this.mensualitatPagat = mensualitatPagat;
+	}
+
+	public double getBalanc() {
+		return balanc;
+	}
+
+	public void setBalanc(double balanc) {
+		this.balanc = balanc;
 	}
 }

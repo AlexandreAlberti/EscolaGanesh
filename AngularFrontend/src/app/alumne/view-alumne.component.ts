@@ -4,10 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Alumne } from '../models/alumne.model';
 import { Llicencia } from '../models/llicencia.model';
-import { Rebut } from '../models/rebut.model';
+import { Mensualitat } from '../models/mensualitat.model';
 import { AlumneService } from './alumne.service';
 import { LlicenciaService } from './llicencia.service';
-import { RebutService } from './rebut.service';
+import { MensualitatService } from './mensualitat.service';
 
 @Component({
   templateUrl: './view-alumne.component.html'
@@ -16,18 +16,18 @@ export class ViewAlumneComponent {
 
   alumne: Alumne = new Alumne();
   novaLlicencia: number;
-  nouRebut: number;
-  nouRebutMes: number;
+  nouMensualitat: number;
+  nouMensualitatMes: number;
   dialogShown: boolean = true;
-  dialogRebutShown: boolean = true;
+  dialogMensualitatShown: boolean = true;
   selectedLlicencia: number = 0;
   selectedLlicenciaAny: number = 0;
-  selectedRebut: number = 0;
-  selectedRebutAny: number = 0;
-  selectedRebutMes: number = 0;
+  selectedMensualitat: number = 0;
+  selectedMensualitatAny: number = 0;
+  selectedMensualitatMes: number = 0;
 
 
-  constructor(private route: ActivatedRoute, private router: Router, private alumneService: AlumneService, private llicenciaService: LlicenciaService, private rebutService: RebutService) {
+  constructor(private route: ActivatedRoute, private router: Router, private alumneService: AlumneService, private llicenciaService: LlicenciaService, private mensualitatService: MensualitatService) {
 
   }
 
@@ -75,39 +75,59 @@ export class ViewAlumneComponent {
 	this.dialogShown = true;
   }
     
-  creaRebut(): void {
-    let rebut = new Rebut();
-    rebut.idAlumne = this.alumne.id;
-    rebut.any = this.nouRebut;
-    rebut.mes = this.nouRebutMes;
-    this.rebutService.createRebut(this.alumne.id, rebut)
+  creaMensualitat(): void {
+    let mensualitat = new Mensualitat();
+    mensualitat.idAlumne = this.alumne.id;
+    mensualitat.any = this.nouMensualitat;
+    mensualitat.mes = this.nouMensualitatMes;
+    this.mensualitatService.createMensualitat(this.alumne.id, mensualitat)
         .subscribe( data => {
 		    this.alumneService.getAlumne(this.alumne.id)
 		      .subscribe( data => {
 		        this.alumne = data;
-		           this.selectedRebut = 0;
- 				   this.selectedRebutAny = 0;
- 				   this.selectedRebutMes = 0;
+		           this.selectedMensualitat = 0;
+ 				   this.selectedMensualitatAny = 0;
+ 				   this.selectedMensualitatMes = 0;
 		      });
         });
 
   };
-  deleteRebut(id: string): void {
-    this.rebutService.deleteRebut(this.alumne.id, id)
+  deleteMensualitat(id: string): void {
+    this.mensualitatService.deleteMensualitat(this.alumne.id, id)
       .subscribe( data => {
-        this.alumne.rebuts = this.alumne.rebuts.filter(u => u.id !== id);
-	    this.dialogRebutShown = true;
+        this.alumne.mensualitats = this.alumne.mensualitats.filter(u => u.id !== id);
+	    this.dialogMensualitatShown = true;
       });  
   };
   
-  openDialogRebut(llic: number, llicAny: number, llicMes: number) {
-  	this.selectedRebutAny = llicAny;
-  	this.selectedRebutMes = llicMes;
-  	this.selectedRebut = llic;
-	this.dialogRebutShown = false;    		
+  pagarMensualitat(id: string): void {
+    this.mensualitatService.pagarMensualitat(this.alumne.id, id)
+      .subscribe( data => {
+	    this.alumneService.getAlumne(this.route.snapshot.params.id)
+	      .subscribe( data => {
+	        this.alumne = data;
+	      });
+      });  
+  };
+  
+  tornarMensualitat(id: string): void {
+    this.mensualitatService.tornarMensualitat(this.alumne.id, id)
+      .subscribe( data => {
+	    this.alumneService.getAlumne(this.route.snapshot.params.id)
+	      .subscribe( data => {
+	        this.alumne = data;
+	      });
+      });  
+  };
+  
+  openDialogMensualitat(llic: number, llicAny: number, llicMes: number) {
+  	this.selectedMensualitatAny = llicAny;
+  	this.selectedMensualitatMes = llicMes;
+  	this.selectedMensualitat = llic;
+	this.dialogMensualitatShown = false;    		
   }
-  closeDialogRebut(){
-	this.dialogRebutShown = true;
+  closeDialogMensualitat(){
+	this.dialogMensualitatShown = true;
   }
   
 }

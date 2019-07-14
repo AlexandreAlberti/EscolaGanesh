@@ -1,64 +1,97 @@
 package escolaganesh.entitats;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "rebut")
 public class Rebut {
 
-	@Id
-	@Column
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
-	@Column
-	private Integer any;
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	@Column
-	private Integer mes;
+    @Column
+    private String year;
 
-	@JoinColumn
-	@ManyToOne
-	private Alumne alumne;
+    @Column
+    private String mes;
 
-	public int getId() {
-		return id;
-	}
+    @Column
+    private Boolean validat;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @Column
+    private Date creationDate;
 
-	public Integer getAny() {
-		return any;
-	}
+    @Column
+    private Double total;
 
-	public void setAny(Integer any) {
-		this.any = any;
-	}
+    @OneToMany(mappedBy = "rebut")
+    private List<LiniaRebut> liniesRebut;
 
-	public Alumne getAlumne() {
-		return alumne;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public void setAlumne(Alumne alumne) {
-		this.alumne = alumne;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public Integer getMes() {
-		return mes;
-	}
+    public String getYear() {
+	return year;
+    }
 
-	public void setMes(Integer mes) {
-		this.mes = mes;
-	}
+    public void setYear(String year) {
+	this.year = year;
+    }
 
+    public String getMes() {
+	return mes;
+    }
+
+    public void setMes(String mes) {
+	this.mes = mes;
+    }
+
+    public Boolean getValidat() {
+	return validat;
+    }
+
+    public void setValidat(Boolean validat) {
+	this.validat = validat;
+    }
+
+    public List<LiniaRebut> getLiniesRebut() {
+	return liniesRebut;
+    }
+
+    public void setLiniesRebut(List<LiniaRebut> liniesRebut) {
+	this.liniesRebut = liniesRebut;
+    }
+
+    public Date getCreationDate() {
+	return creationDate;
+    }
+
+    public void setCreationDate(Date date) {
+	this.creationDate = date;
+    }
+
+    public Double getTotal() {
+	return total;
+    }
+
+    public void setTotal(Double total) {
+	this.total = total;
+    }
 
 }

@@ -20,10 +20,10 @@ import com.mysql.jdbc.StringUtils;
 
 import escolaganesh.models.AlumneDTO;
 import escolaganesh.models.LlicenciaDTO;
-import escolaganesh.models.RebutDTO;
+import escolaganesh.models.MensualitatDTO;
 import escolaganesh.serveis.AlumneService;
 import escolaganesh.serveis.LlicenciaService;
-import escolaganesh.serveis.RebutService;
+import escolaganesh.serveis.MensualitatService;
 
 @Controller
 @RequestMapping("/alumne")
@@ -35,7 +35,7 @@ public class AlumneController {
 	@Autowired
 	private LlicenciaService llicenciaService;
 	@Autowired
-	private RebutService rebutService;
+	private MensualitatService mensualitatService;
 
 	@PostMapping
 	@ResponseBody
@@ -85,16 +85,28 @@ public class AlumneController {
 		return llicenciaService.delete(idLlicencia);
 	}
 
-	@PostMapping("/{id}/rebut")
+	@PostMapping("/{id}/mensualitat")
 	@ResponseBody
-	public RebutDTO createRebut(@RequestBody RebutDTO rebut) {
-		return rebutService.create(rebut);
+	public MensualitatDTO createMensualitat(@RequestBody MensualitatDTO mensualitat) {
+		return mensualitatService.create(mensualitat);
 	}
 
-	@DeleteMapping(path = { "/{id}/rebut/{idRebut}" })
+	@PutMapping("/{id}/mensualitat/{idMensualitat}/pagat")
 	@ResponseBody
-	public int deleteRebut(@PathVariable("id") int id, @PathVariable("idRebut") int idRebut) {
-		return rebutService.delete(idRebut);
+	public Boolean pagarMensualitat(@PathVariable("idMensualitat") int idMensualitat) {
+		return mensualitatService.pagat(idMensualitat);
+	}
+
+	@PutMapping("/{id}/mensualitat/{idMensualitat}/retornar")
+	@ResponseBody
+	public Boolean retornarMensualitat(@PathVariable("idMensualitat") int idMensualitat) {
+		return mensualitatService.retornat(idMensualitat);
+	}
+
+	@DeleteMapping(path = { "/{id}/mensualitat/{idMensualitat}" })
+	@ResponseBody
+	public int deleteMensualitat(@PathVariable("id") int id, @PathVariable("idMensualitat") int idMensualitat) {
+		return mensualitatService.delete(idMensualitat);
 	}
 
 }

@@ -25,5 +25,9 @@ export class AppComponent {
   goMaterial() {
     this.router.navigateByUrl('/material');
   };
+
+  goRebut() {
+    this.router.navigateByUrl('/rebut');
+  };
   
 }

@@ -45,29 +45,39 @@
 		</tbody>
 	</table>
 	<div class="mdl-cell mdl-cell--3-col"></div>
-	<table class="rounded mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--3-col">
+	<table class="rounded mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--6-col">
 		<thead>
 			<tr>
-				<th colspan=6>
-					Historial de Rebuts
+				<th colspan=9>
+					Historial de Mensualitats
 				</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let rebut of alumne.rebuts">
+			<tr *ngFor="let mensualitat of alumne.mensualitats">
 				<td class="mdl-data-table__cell--non-numeric"><b>Any:</b></td>
-				<td class="blue">{{rebut.any}}</td>
+				<td class="blue">{{mensualitat.any}}</td>
 				<td class="mdl-data-table__cell--non-numeric"><b>Mes:</b></td>
-				<td class="blue">{{rebut.mes}}</td>
+				<td class="blue">{{mensualitat.mes}}</td>
+				<td class="mdl-data-table__cell--non-numeric"><b>Quantitat:</b></td>
+				<td class="blue">{{mensualitat.quantitat}}</td>
+				<td class="mdl-data-table__cell--non-numeric"><b>Pagat:</b></td>
+				<td class="{{mensualitat.pagat ? 'blue' : 'red'}}">{{mensualitat.pagat ? 'Sí' : 'No'}}</td>
 				<td class="mdl-data-table__cell--non-numeric">
-			      <a class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialogRebut(rebut.id,rebut.any,rebut.mes)">
+			      <a *ngIf="!mensualitat.pagat" class="mdl-button mdl-js-button mat-raised-button actionField" (click)="pagarMensualitat(mensualitat.id)">
+				    <i class="material-icons">payment</i>
+				  </a>
+			      <a *ngIf="mensualitat.pagat" class="mdl-button mdl-js-button mat-raised-button actionField" (click)="tornarMensualitat(mensualitat.id)">
+				    <i class="material-icons">assignment_return</i>
+				  </a>
+			      <a class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialogMensualitat(mensualitat.id,mensualitat.any,mensualitat.mes)">
 				    <i class="material-icons">delete</i>
 				  </a>
 				</td>
 			</tr>
 		</tbody>
 	</table>
-	<div class="mdl-cell mdl-cell--3-col"></div>
+<!-- 	<div class="mdl-cell mdl-cell--1-col"></div> -->
 	<table class="mdl-cell mdl-cell--3-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
 		<tbody>
 			<tr>
@@ -82,14 +92,14 @@
 	<table class="mdl-cell mdl-cell--3-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
 		<tbody>
 			<tr>
-				<td><span>Afegir rebut</span></td>
-				<td><input [(ngModel)]="nouRebut" class="mdl-textfield__input" type="number"></td>
-				<td><input [(ngModel)]="nouRebutMes" class="mdl-textfield__input" type="number"></td>
+				<td><span>Afegir mensualitat</span></td>
+				<td><input [(ngModel)]="nouMensualitat" class="mdl-textfield__input" type="number"></td>
+				<td><input [(ngModel)]="nouMensualitatMes" class="mdl-textfield__input" type="number"></td>
 			</tr>
 		</tbody>
 	</table>
 	<div class="mdl-cell mdl-cell--3-col">
-		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="creaRebut()">Crear</button>
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="creaMensualitat()">Crear</button>
 	</div>
 </div>
 
@@ -107,16 +117,16 @@
 	</div>
 </div>
 
-<div class="superDialeg rounded shadowed demo-card-event mdl-card mdl-shadow--2dp" *ngIf="!dialogRebutShown">
+<div class="superDialeg rounded shadowed demo-card-event mdl-card mdl-shadow--2dp" *ngIf="!dialogMensualitatShown">
 	<h4 class="mdl-card__title">Confirmació</h4>
 	<div class="mdl-card__supporting-text">
       <p>
-		Segur que vols esborrar el rebut de l'alumne per l'any {{selectedRebut}} i el mes {{selectedRebutMes}}
+		Segur que vols esborrar el mensualitat de l'alumne per l'any {{selectedMensualitat}} i el mes {{selectedMensualitatMes}}
 	  </p>
 	</div>
     <div class="mdl-card__actions mdl-card--border">
-	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close" (click)="closeDialogRebut()">Cancelar</button>
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close" (click)="closeDialogMensualitat()">Cancelar</button>
 	    &nbsp;&nbsp;&nbsp;
-	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="deleteRebut(selectedRebut)">Esborrar</button>
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="deleteMensualitat(selectedMensualitat)">Esborrar</button>
 	</div>
 </div>

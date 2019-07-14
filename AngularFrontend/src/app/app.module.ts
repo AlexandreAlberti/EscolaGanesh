@@ -12,13 +12,15 @@ import { AddAlumneComponent } from './alumne/add-alumne.component';
 import { EditAlumneComponent } from './alumne/edit-alumne.component';
 import { ViewAlumneComponent } from './alumne/view-alumne.component';
 import { LlicenciaService } from './alumne/llicencia.service';
-import { RebutService } from './alumne/rebut.service';
+import { MensualitatService } from './alumne/mensualitat.service';
+import { RebutService } from './rebut/rebut.service';
 
 import { MaterialService } from './material/material.service';
 import { MaterialComponent } from './material/material.component';
 import { AddMaterialComponent } from './material/add-material.component';
 import { EditMaterialComponent } from './material/edit-material.component';
 
+import { RebutComponent } from './rebut/rebut.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { EditMaterialComponent } from './material/edit-material.component';
     ViewAlumneComponent,
     MaterialComponent,
     AddMaterialComponent,
-    EditMaterialComponent
+    EditMaterialComponent,
+    RebutComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +43,9 @@ import { EditMaterialComponent } from './material/edit-material.component';
   providers: [ 
   	AlumneService,
   	LlicenciaService,
-  	RebutService,
-  	MaterialService
+  	MensualitatService,
+  	MaterialService,
+  	RebutService
   ],
   bootstrap: [AppComponent],
   entryComponents: [ ]

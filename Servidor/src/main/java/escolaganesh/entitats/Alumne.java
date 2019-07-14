@@ -14,219 +14,240 @@ import javax.persistence.Table;
 @Table(name = "alumnes")
 public class Alumne {
 
-	@Id
-	@Column
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	@Column
-	private String firstName;
-	@Column
-	private String lastName;
-	@Column
-	private String email;
-	@Column
-	private String cid;
-	@Column
-	private String dni;
-	@Column
-	private String direccio;
-	@Column
-	private String poblacio;
-	@Column
-	private String telefon;
-	@Column
-	private String dadesBancaries;
-	@Column
-	private Boolean jjk;
-	@Column
-	private Boolean totsival;
-	@Column
-	private Boolean tkd;
-	@Column
-	private Boolean jjkInfantil;
-	@Column
-	private Boolean jjkIniciacio;
-	@Column
-	private Boolean ioga;
-	@Column
-	private Double cuota;
-	@Column
-	private String observacions;
-	@Column
-	private Boolean actiu;
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column
+    private String firstName;
+    @Column
+    private String lastName;
+    @Column
+    private String email;
+    @Column
+    private String cid;
+    @Column
+    private String dni;
+    @Column
+    private String direccio;
+    @Column
+    private String poblacio;
+    @Column
+    private String telefon;
+    @Column
+    private String dadesBancaries;
+    @Column
+    private Boolean jjk;
+    @Column
+    private Boolean totsival;
+    @Column
+    private Boolean tkd;
+    @Column
+    private Boolean jjkInfantil;
+    @Column
+    private Boolean jjkIniciacio;
+    @Column
+    private Boolean ioga;
+    @Column
+    private Double cuota;
+    @Column
+    private String observacions;
+    @Column
+    private String lastUpdate;
+    @Column
+    private Boolean actiu;
 
-	@OneToMany(mappedBy = "alumne")
-	private List<Llicencia> llicencies;
-	
-	@OneToMany(mappedBy = "alumne")
-	private List<Rebut> rebuts;
+    @OneToMany(mappedBy = "alumne")
+    private List<Llicencia> llicencies;
 
-	public int getId() {
-		return id;
-	}
+    @OneToMany(mappedBy = "alumne")
+    private List<Mensualitat> mensualitats;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @OneToMany(mappedBy = "alumne")
+    private List<LiniaRebut> liniesRebut;
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getFirstName() {
+	return firstName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public void setFirstName(String firstName) {
+	this.firstName = firstName;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getLastName() {
+	return lastName;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setLastName(String lastName) {
+	this.lastName = lastName;
+    }
 
-	public String getCid() {
-		return cid;
-	}
+    public String getEmail() {
+	return email;
+    }
 
-	public void setCid(String cid) {
-		this.cid = cid;
-	}
+    public void setEmail(String email) {
+	this.email = email;
+    }
 
-	public String getDni() {
-		return dni;
-	}
+    public String getCid() {
+	return cid;
+    }
 
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
+    public void setCid(String cid) {
+	this.cid = cid;
+    }
 
-	public String getDireccio() {
-		return direccio;
-	}
+    public String getDni() {
+	return dni;
+    }
 
-	public void setDireccio(String direccio) {
-		this.direccio = direccio;
-	}
+    public void setDni(String dni) {
+	this.dni = dni;
+    }
 
-	public String getPoblacio() {
-		return poblacio;
-	}
+    public String getDireccio() {
+	return direccio;
+    }
 
-	public void setPoblacio(String poblacio) {
-		this.poblacio = poblacio;
-	}
+    public void setDireccio(String direccio) {
+	this.direccio = direccio;
+    }
 
-	public String getTelefon() {
-		return telefon;
-	}
+    public String getPoblacio() {
+	return poblacio;
+    }
 
-	public void setTelefon(String telefon) {
-		this.telefon = telefon;
-	}
+    public void setPoblacio(String poblacio) {
+	this.poblacio = poblacio;
+    }
 
-	public String getDadesBancaries() {
-		return dadesBancaries;
-	}
+    public String getTelefon() {
+	return telefon;
+    }
 
-	public void setDadesBancaries(String dadesBancaries) {
-		this.dadesBancaries = dadesBancaries;
-	}
+    public void setTelefon(String telefon) {
+	this.telefon = telefon;
+    }
 
-	public Double getCuota() {
-		return cuota;
-	}
+    public String getDadesBancaries() {
+	return dadesBancaries;
+    }
 
-	public void setCuota(Double cuota) {
-		this.cuota = cuota;
-	}
+    public void setDadesBancaries(String dadesBancaries) {
+	this.dadesBancaries = dadesBancaries;
+    }
 
-	public String getObservacions() {
-		return observacions;
-	}
+    public Double getCuota() {
+	return cuota;
+    }
 
-	public void setObservacions(String observacions) {
-		this.observacions = observacions;
-	}
+    public void setCuota(Double cuota) {
+	this.cuota = cuota;
+    }
 
-	public Boolean isJjk() {
-		return jjk;
-	}
+    public String getObservacions() {
+	return observacions;
+    }
 
-	public void setJjk(Boolean jjk) {
-		this.jjk = jjk;
-	}
+    public void setObservacions(String observacions) {
+	this.observacions = observacions;
+    }
 
-	public Boolean isTotsival() {
-		return totsival;
-	}
+    public Boolean isJjk() {
+	return jjk;
+    }
 
-	public void setTotsival(Boolean totsival) {
-		this.totsival = totsival;
-	}
+    public void setJjk(Boolean jjk) {
+	this.jjk = jjk;
+    }
 
-	public Boolean isTkd() {
-		return tkd;
-	}
+    public Boolean isTotsival() {
+	return totsival;
+    }
 
-	public void setTkd(Boolean tkd) {
-		this.tkd = tkd;
-	}
+    public void setTotsival(Boolean totsival) {
+	this.totsival = totsival;
+    }
 
-	public Boolean isJjkInfantil() {
-		return jjkInfantil;
-	}
+    public Boolean isTkd() {
+	return tkd;
+    }
 
-	public void setJjkInfantil(Boolean jjkInfantil) {
-		this.jjkInfantil = jjkInfantil;
-	}
+    public void setTkd(Boolean tkd) {
+	this.tkd = tkd;
+    }
 
-	public Boolean isJjkIniciacio() {
-		return jjkIniciacio;
-	}
+    public Boolean isJjkInfantil() {
+	return jjkInfantil;
+    }
 
-	public void setJjkIniciacio(Boolean jjkIniciacio) {
-		this.jjkIniciacio = jjkIniciacio;
-	}
+    public void setJjkInfantil(Boolean jjkInfantil) {
+	this.jjkInfantil = jjkInfantil;
+    }
 
-	public Boolean isIoga() {
-		return ioga;
-	}
+    public Boolean isJjkIniciacio() {
+	return jjkIniciacio;
+    }
 
-	public void setIoga(Boolean ioga) {
-		this.ioga = ioga;
-	}
+    public void setJjkIniciacio(Boolean jjkIniciacio) {
+	this.jjkIniciacio = jjkIniciacio;
+    }
 
-	public List<Llicencia> getLlicencies() {
-		return llicencies;
-	}
+    public Boolean isIoga() {
+	return ioga;
+    }
 
-	public void setLlicencies(List<Llicencia> llicencies) {
-		this.llicencies = llicencies;
-	}
+    public void setIoga(Boolean ioga) {
+	this.ioga = ioga;
+    }
 
-	public Boolean isActiu() {
-		return actiu;
-	}
+    public Boolean isActiu() {
+	return actiu;
+    }
 
-	public void setActiu(Boolean actiu) {
-		this.actiu = actiu;
-	}
+    public void setActiu(Boolean actiu) {
+	this.actiu = actiu;
+    }
 
-	public List<Rebut> getRebuts() {
-		return rebuts;
-	}
+    public String getLastUpdate() {
+	return lastUpdate;
+    }
 
-	public void setRebuts(List<Rebut> rebuts) {
-		this.rebuts = rebuts;
-	}
+    public void setLastUpdate(String lastUpdate) {
+	this.lastUpdate = lastUpdate;
+    }
+
+    public List<Llicencia> getLlicencies() {
+	return llicencies;
+    }
+
+    public void setLlicencies(List<Llicencia> llicencies) {
+	this.llicencies = llicencies;
+    }
+
+    public List<Mensualitat> getMensualitats() {
+	return mensualitats;
+    }
+
+    public void setMensualitats(List<Mensualitat> mensualitats) {
+	this.mensualitats = mensualitats;
+    }
+
+    public List<LiniaRebut> getLiniesRebut() {
+	return liniesRebut;
+    }
+
+    public void setLiniesRebut(List<LiniaRebut> liniesRebut) {
+	this.liniesRebut = liniesRebut;
+    }
 
 }

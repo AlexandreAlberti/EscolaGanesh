@@ -9,5 +9,11 @@ import escolaganesh.entitats.Rebut;
 
 @Repository
 public interface RebutRepository extends JpaRepository<Rebut, Integer> {
-	public List<Rebut> findByAlumne_Id(int alumneId);
+
+    List<Rebut> findByMes(String cercaMes);
+
+    List<Rebut> findByYear(String cercaYear);
+
+    List<Rebut> findByMesAndYear(String cercaMes, String cercaYear);
+
 }

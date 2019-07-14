@@ -1,42 +1,41 @@
 package escolaganesh.models;
 
 public class RebutDTO {
+    private int id;
+    private String year;
+    private String mes;
+    private boolean validat;
 
-	private int id;
-	private int idAlumne;
-	private int any;
-	private int mes;
+    public int getId() {
+	return id;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getYear() {
+	return year;
+    }
 
-	public int getIdAlumne() {
-		return idAlumne;
-	}
+    public void setYear(String year) {
+	this.year = year;
+    }
 
-	public void setIdAlumne(int idAlumne) {
-		this.idAlumne = idAlumne;
-	}
+    public String getMes() {
+	return mes;
+    }
 
-	public int getAny() {
-		return any;
-	}
+    public void setMes(String mes) {
+	this.mes = mes;
+    }
 
-	public void setAny(int any) {
-		this.any = any;
-	}
+    public boolean isValidat() {
+	return validat;
+    }
 
-	public int getMes() {
-		return mes;
-	}
-
-	public void setMes(int mes) {
-		this.mes = mes;
-	}
+    public void setValidat(boolean validat) {
+	this.validat = validat;
+    }
 
 }

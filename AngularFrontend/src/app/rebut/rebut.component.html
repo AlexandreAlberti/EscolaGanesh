@@ -1,0 +1,63 @@
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--12-col">
+		<span class="mdl-layout-title white">Llistat Rebuts</span>
+	</div>
+	<table class="mdl-cell mdl-cell--6-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
+		<tbody>
+			<tr>
+				<td><span>Cercador per mes</span></td>
+				<td><input [(ngModel)]="cercadorMes" class="mdl-textfield__input" type="text"></td>
+				<td><span>Cercador per any</span></td>
+				<td><input [(ngModel)]="cercadorAny" class="mdl-textfield__input" type="text"></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="mdl-cell mdl-cell--3-col">
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="cercaRebuts()">Cercar</button>
+	</div>
+	
+	<table class="mdl-cell mdl-cell--6-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
+	  <thead>
+	  <tr>
+	    <th class="hidden">Id</th>
+	    <th class="mdl-data-table__cell--non-numeric">Mes</th>
+	    <th class="mdl-data-table__cell--non-numeric">Any</th>
+	    <th class="mdl-data-table__cell--non-numeric">Validat</th>
+	    <th class="mdl-data-table__cell--non-numeric"></th>
+	  </tr>
+	  </thead>
+	  <tbody>
+	  <tr *ngFor="let rebut of rebuts">
+	    <td class="hidden">{{rebut.id}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{rebut.mes}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{rebut.year}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{rebut.validat ? 'Sí' : 'No'}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{rebut.observacions}}</td>
+	    <td class="mdl-data-table__cell--non-numeric">
+	      <a *ngIf="!rebut.validat" class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialog(rebut)">
+		    <i class="material-icons">monetization_on</i>
+		  </a>
+		 </td>
+	  </tr>
+	  </tbody>
+	</table>
+	
+	<div class="mdl-cell mdl-cell--3-col">
+		<span>Generar rebut per al mes {{mesActual}} i any {{anyActual}}</span>
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="creaRebut()">Generar</button>
+	</div>
+</div>
+
+<div class="superDialeg rounded shadowed demo-card-event mdl-card mdl-shadow--2dp" *ngIf="!dialogShown">
+	<h4 class="mdl-card__title">Confirmació</h4>
+	<div class="mdl-card__supporting-text">
+      <p>
+		Segur que vols validar el rebut del mes {{selectedRebut.mes}} i de l'any {{selectedRebut.any}}
+	  </p>
+	</div>
+    <div class="mdl-card__actions mdl-card--border">
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close" (click)="closeDialog()">Cancelar</button>
+	    &nbsp;&nbsp;&nbsp;
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="validarRebut(selectedRebut.id)">Validar</button>
+	</div>
+</div>
