@@ -16,7 +16,7 @@
 		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="cercaRebuts()">Cercar</button>
 	</div>
 	
-	<table class="mdl-cell mdl-cell--6-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
+	<table class="mdl-cell mdl-cell--9-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
 	  <thead>
 	  <tr>
 	    <th class="hidden">Id</th>
@@ -42,9 +42,15 @@
 	  </tbody>
 	</table>
 	
-	<div class="mdl-cell mdl-cell--3-col">
-		<span>Generar rebut per al mes {{mesActual}} i any {{anyActual}}</span>
-		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="creaRebut()">Generar</button>
+	<div class="mdl-cell mdl-cell--6-col">
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--7-col">
+				<span class="mdl-layout-title white">Generar rebut per al mes {{mesActual}} i any {{anyActual}}</span>
+			</div>
+			<div class="mdl-cell mdl-cell--3-col">
+				<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="creaRebut()">Generar</button>
+			</div>
+		</div>
 	</div>
 </div>
 

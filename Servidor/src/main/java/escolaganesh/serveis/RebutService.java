@@ -46,7 +46,7 @@ public class RebutService {
 
 	List<Rebut> list = repository.findByMesAndYear(mes.toString(), year.toString());
 	if (list != null && list.size() > 0) {
-	    return "alreadyExists";
+	    return "{\"text\":\"alreadyExists\"}";
 	}
 
 	Rebut rebut = new Rebut();
@@ -140,8 +140,8 @@ public class RebutService {
     }
 
     private String genearateXML(Rebut rebut) {
-	StringBuilder sb = new StringBuilder("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-	sb.append("<Document xmlns=\"urn:iso:std:iso:20022:tech:xsd:pain.008.001.02\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">");
+	StringBuilder sb = new StringBuilder("{\"text\":\"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>");
+	sb.append("<Document xmlns=\\\"urn:iso:std:iso:20022:tech:xsd:pain.008.001.02\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\">");
 	sb.append("   <CstmrDrctDbtInitn>");
 	sb.append("      <GrpHdr>");
 	sb.append("         <MsgId>PRE2019071018595700042bsWindows9FD1</MsgId>");
@@ -205,7 +205,7 @@ public class RebutService {
 	    sb.append("            <PmtId>");
 	    sb.append("               <EndToEndId>" + linea.getAlumne().getCid() + linea.getId() + "</EndToEndId>");
 	    sb.append("            </PmtId>");
-	    sb.append("            <InstdAmt Ccy=\"EUR\">" + linea.getTotal() + "</InstdAmt>");
+	    sb.append("            <InstdAmt Ccy=\\\"EUR\\\">" + linea.getTotal() + "</InstdAmt>");
 	    sb.append("            <DrctDbtTx>");
 	    sb.append("               <MndtRltdInf>");
 	    sb.append("                  <MndtId>" + linea.getAlumne().getCid() + "</MndtId>");
@@ -230,7 +230,7 @@ public class RebutService {
 	}
 	sb.append("      </PmtInf>");
 	sb.append("   </CstmrDrctDbtInitn>");
-	sb.append("</Document>");
+	sb.append("</Document>\"}");
 	return sb.toString();
     }
 }
