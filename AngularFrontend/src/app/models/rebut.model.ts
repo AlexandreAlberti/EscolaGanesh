@@ -4,4 +4,6 @@ export class Rebut {
   any: number;
   mes: number;
   validat: boolean;
+  text: string;
+  
 }

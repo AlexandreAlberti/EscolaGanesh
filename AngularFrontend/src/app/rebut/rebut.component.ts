@@ -41,9 +41,10 @@ export class RebutComponent implements OnInit {
   creaRebut(){
     this.rebutService.crearRebut()
       .subscribe( data => {
-        console.log(data);
-        var blob = new Blob([data.text], { type: 'text/plain' });
-    	saveAs(blob, "rebuts_"+this.mesActual+"_"+this.anyActual+".xml");
+        if (data instanceof Rebut) {
+          var blob = new Blob([data.text], { type: 'text/plain' });
+          saveAs(blob, "rebuts_"+this.mesActual+"_"+this.anyActual+".xml");
+        }
         this.cercaRebuts();
       });
   }
