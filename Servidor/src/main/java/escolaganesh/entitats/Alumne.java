@@ -1,5 +1,6 @@
 package escolaganesh.entitats;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -58,13 +59,13 @@ public class Alumne {
     private Boolean actiu;
 
     @OneToMany(mappedBy = "alumne")
-    private List<Llicencia> llicencies;
+    private List<Llicencia> llicencies = new ArrayList<>();
 
     @OneToMany(mappedBy = "alumne")
-    private List<Mensualitat> mensualitats;
+    private List<Mensualitat> mensualitats = new ArrayList<>();
 
     @OneToMany(mappedBy = "alumne")
-    private List<LiniaRebut> liniesRebut;
+    private List<LiniaRebut> liniesRebut = new ArrayList<>();
 
     public int getId() {
 	return id;

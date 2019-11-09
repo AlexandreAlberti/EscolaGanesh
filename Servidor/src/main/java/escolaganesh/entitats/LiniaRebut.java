@@ -1,5 +1,6 @@
 package escolaganesh.entitats;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -33,7 +34,7 @@ public class LiniaRebut {
     private Double total;
 
     @OneToMany(mappedBy = "liniaRebut")
-    private List<LiniaDetallRebut> detalls;
+    private List<LiniaDetallRebut> detalls = new ArrayList<>();;
 
     public int getId() {
 	return id;

@@ -93,8 +93,9 @@
 		<tbody>
 			<tr>
 				<td><span>Afegir mensualitat</span></td>
-				<td><input [(ngModel)]="nouMensualitat" class="mdl-textfield__input" type="number"></td>
-				<td><input [(ngModel)]="nouMensualitatMes" class="mdl-textfield__input" type="number"></td>
+				<td><span>Any</span><input [(ngModel)]="nouMensualitat" class="mdl-textfield__input" type="number"></td>
+				<td><span>Mes</span><input [(ngModel)]="nouMensualitatMes" class="mdl-textfield__input" type="number"></td>
+				<td><span>€</span><input [(ngModel)]="nouMensualitatQuantitat" class="mdl-textfield__input" type="number"></td>
 			</tr>
 		</tbody>
 	</table>

@@ -14,6 +14,7 @@ public class ExceptionHandlerController {
 
 	@ExceptionHandler({ Exception.class, RuntimeException.class })
 	public ModelAndView handleError(HttpServletRequest req, Exception ex) {
+		ex.printStackTrace();
 		System.out.println(req.getRequestURL());
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("message", "Sorry, we couldn't find what you are looking for." + ex.getMessage());

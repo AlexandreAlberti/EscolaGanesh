@@ -18,6 +18,7 @@ export class ViewAlumneComponent {
   novaLlicencia: number;
   nouMensualitat: number;
   nouMensualitatMes: number;
+  nouMensualitatQuantitat: number;
   dialogShown: boolean = true;
   dialogMensualitatShown: boolean = true;
   selectedLlicencia: number = 0;
@@ -25,7 +26,6 @@ export class ViewAlumneComponent {
   selectedMensualitat: number = 0;
   selectedMensualitatAny: number = 0;
   selectedMensualitatMes: number = 0;
-
 
   constructor(private route: ActivatedRoute, private router: Router, private alumneService: AlumneService, private llicenciaService: LlicenciaService, private mensualitatService: MensualitatService) {
 
@@ -80,14 +80,14 @@ export class ViewAlumneComponent {
     mensualitat.idAlumne = this.alumne.id;
     mensualitat.any = this.nouMensualitat;
     mensualitat.mes = this.nouMensualitatMes;
+    mensualitat.quantitat = this.nouMensualitatQuantitat;
     this.mensualitatService.createMensualitat(this.alumne.id, mensualitat)
         .subscribe( data => {
 		    this.alumneService.getAlumne(this.alumne.id)
 		      .subscribe( data => {
 		        this.alumne = data;
 		           this.selectedMensualitat = 0;
- 				   this.selectedMensualitatAny = 0;
- 				   this.selectedMensualitatMes = 0;
+               this.selectedMensualitatMes = 0;
 		      });
         });
 

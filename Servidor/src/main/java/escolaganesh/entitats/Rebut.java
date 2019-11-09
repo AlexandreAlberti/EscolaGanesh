@@ -1,5 +1,6 @@
 package escolaganesh.entitats;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -36,62 +37,62 @@ public class Rebut {
     private Double total;
 
     @OneToMany(mappedBy = "rebut")
-    private List<LiniaRebut> liniesRebut;
+    private List<LiniaRebut> liniesRebut = new ArrayList<>();
 
     public int getId() {
-	return id;
+        return id;
     }
 
     public void setId(int id) {
-	this.id = id;
+        this.id = id;
     }
 
     public String getYear() {
-	return year;
+        return year;
     }
 
     public void setYear(String year) {
-	this.year = year;
+        this.year = year;
     }
 
     public String getMes() {
-	return mes;
+        return mes;
     }
 
     public void setMes(String mes) {
-	this.mes = mes;
+        this.mes = mes;
     }
 
     public Boolean getValidat() {
-	return validat;
+        return validat;
     }
 
     public void setValidat(Boolean validat) {
-	this.validat = validat;
+        this.validat = validat;
     }
 
     public List<LiniaRebut> getLiniesRebut() {
-	return liniesRebut;
+        return liniesRebut;
     }
 
     public void setLiniesRebut(List<LiniaRebut> liniesRebut) {
-	this.liniesRebut = liniesRebut;
+        this.liniesRebut = liniesRebut;
     }
 
     public Date getCreationDate() {
-	return creationDate;
+        return creationDate;
     }
 
     public void setCreationDate(Date date) {
-	this.creationDate = date;
+        this.creationDate = date;
     }
 
     public Double getTotal() {
-	return total;
+        return total;
     }
 
     public void setTotal(Double total) {
-	this.total = total;
+        this.total = total;
     }
 
 }
