@@ -7,5 +7,6 @@ export class Material {
   tipus: number;
   cost: number;
   stock: number;
+  stockMinim: number;
   comprable: boolean;
 }

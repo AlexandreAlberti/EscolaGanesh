@@ -63,6 +63,7 @@ public class MaterialService {
 		material.setTipus(dto.getTipus());
 		material.setComprable(dto.isComprable());
 		material.setStock(dto.getStock());
+		material.setStockMinim(dto.getStockMinim());
 		return material;
 	}
 
@@ -75,6 +76,7 @@ public class MaterialService {
 		dto.setCost(mat.getCost());
 		dto.setComprable(mat.isComprable());
 		dto.setStock(mat.getStock());
+		dto.setStockMinim(mat.getStockMinim());
 		return dto;
 	}
 }

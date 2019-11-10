@@ -26,6 +26,7 @@
 	    <th class="mdl-data-table__cell--non-numeric">Tipus</th>
 	    <th class="mdl-data-table__cell--non-numeric">S'ha de comprar?</th>
 	    <th class="mdl-data-table__cell--non-numeric">Stock</th>
+	    <th class="mdl-data-table__cell--non-numeric">Stock Mínim</th>
 	    <th class="mdl-data-table__cell--non-numeric">Observacions</th>
 	    <th class="mdl-data-table__cell--non-numeric">Accions</th>
 	  </tr>
@@ -38,6 +39,7 @@
 	    <td class="blue mdl-data-table__cell--non-numeric">{{tipus[material.tipus].nom}}</td>
 	    <td class="blue mdl-data-table__cell--non-numeric">{{material.comprable ? 'Sí' : 'No'}}</td>
 	    <td class="blue mdl-data-table__cell--non-numeric">{{material.comprable ? material.stock : ' '}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{material.comprable ? material.stockMinim : ' '}}</td>
 	    <td class="blue mdl-data-table__cell--non-numeric">{{material.observacions}}</td>
 	    <td class="mdl-data-table__cell--non-numeric">
 	      <a class="mdl-button mdl-js-button actionField" (click)="goEditMaterial(material)">
