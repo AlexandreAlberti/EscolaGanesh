@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Fitxer } from '../models/fitxer.model';
 import { Material } from '../models/material.model';
 import { TipusMaterial } from '../models/tipusmaterial.model';
 import { MaterialService } from './material.service';
@@ -17,8 +18,12 @@ export class MaterialComponent implements OnInit {
   dialogShown: boolean = true;
   selectedMaterial: Material = new Material();
   cercador : string = "";
-   
+  diaActual : string = ""; 
+  mesActual : string = "";  
+  anyActual : string = ""; 
+
   constructor(private router: Router, private materialService: MaterialService) {
+{text: "Compra de 2 unitats de: Dobok (Talla M)."}
 
   }
 
@@ -29,7 +34,11 @@ export class MaterialComponent implements OnInit {
       .subscribe( data => {
         this.tipus = data;
       });
-    
+    var currentDate = new Date();
+    this.diaActual = "" +currentDate.getDate();
+    this.mesActual = "" +(currentDate.getMonth()+1);
+    this.anyActual = "" + currentDate.getFullYear();
+
   };
 
   cercaMaterials(){
@@ -37,6 +46,16 @@ export class MaterialComponent implements OnInit {
       .subscribe( data => {
         this.materials = data;
       });
+  }
+
+  llistaDeLaCompra(){
+    this.materialService.getLlistaCompra()
+      .subscribe( data => {
+          var textToWrite = data.text.replace(new RegExp("-LINEBREAK-", 'g'), "\r\n");
+          var blob = new Blob([textToWrite], { type: 'text/plain' });
+          saveAs(blob, "llista_compra_"+this.diaActual+"_"+this.mesActual+"_"+this.anyActual+".txt");
+      });
+
   }
 
   deleteMaterial(id: string): void {

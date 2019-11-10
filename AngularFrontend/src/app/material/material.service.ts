@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { Fitxer } from '../models/fitxer.model';
 import { Material } from '../models/material.model';
 import { TipusMaterial } from '../models/tipusmaterial.model';
 
@@ -16,6 +17,7 @@ export class MaterialService {
 
   private materialUrl = 'http://localhost:8080/material';
   private materialTipusUrl = 'http://localhost:8080/material/tipus';
+  private materialLlistaCompraUrl = 'http://localhost:8080/material/compra';
 
   public getMaterials(cercador) {
     return this.http.get<Material[]>(this.materialUrl + "?cerca=" + cercador);
@@ -23,6 +25,10 @@ export class MaterialService {
   
   public getTipus() {
     return this.http.get<TipusMaterial[]>(this.materialTipusUrl);
+  }
+
+  public getLlistaCompra() {
+    return this.http.get<Fitxer>(this.materialLlistaCompraUrl);
   }
 
   public deleteMaterial(materialID) {

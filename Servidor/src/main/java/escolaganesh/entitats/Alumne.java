@@ -1,8 +1,5 @@
 package escolaganesh.entitats;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "alumnes")
@@ -67,188 +66,199 @@ public class Alumne {
     @OneToMany(mappedBy = "alumne")
     private List<LiniaRebut> liniesRebut = new ArrayList<>();
 
+    @OneToMany(mappedBy = "alumne")
+    private List<Comanda> comandes = new ArrayList<>();
+
     public int getId() {
-	return id;
+        return id;
     }
 
     public void setId(int id) {
-	this.id = id;
+        this.id = id;
     }
 
     public String getFirstName() {
-	return firstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-	this.firstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-	return lastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-	this.lastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getEmail() {
-	return email;
+        return email;
     }
 
     public void setEmail(String email) {
-	this.email = email;
+        this.email = email;
     }
 
     public String getCid() {
-	return cid;
+        return cid;
     }
 
     public void setCid(String cid) {
-	this.cid = cid;
+        this.cid = cid;
     }
 
     public String getDni() {
-	return dni;
+        return dni;
     }
 
     public void setDni(String dni) {
-	this.dni = dni;
+        this.dni = dni;
     }
 
     public String getDireccio() {
-	return direccio;
+        return direccio;
     }
 
     public void setDireccio(String direccio) {
-	this.direccio = direccio;
+        this.direccio = direccio;
     }
 
     public String getPoblacio() {
-	return poblacio;
+        return poblacio;
     }
 
     public void setPoblacio(String poblacio) {
-	this.poblacio = poblacio;
+        this.poblacio = poblacio;
     }
 
     public String getTelefon() {
-	return telefon;
+        return telefon;
     }
 
     public void setTelefon(String telefon) {
-	this.telefon = telefon;
+        this.telefon = telefon;
     }
 
     public String getDadesBancaries() {
-	return dadesBancaries;
+        return dadesBancaries;
     }
 
     public void setDadesBancaries(String dadesBancaries) {
-	this.dadesBancaries = dadesBancaries;
+        this.dadesBancaries = dadesBancaries;
     }
 
     public Double getCuota() {
-	return cuota;
+        return cuota;
     }
 
     public void setCuota(Double cuota) {
-	this.cuota = cuota;
+        this.cuota = cuota;
     }
 
     public String getObservacions() {
-	return observacions;
+        return observacions;
     }
 
     public void setObservacions(String observacions) {
-	this.observacions = observacions;
+        this.observacions = observacions;
     }
 
     public Boolean isJjk() {
-	return jjk;
+        return jjk;
     }
 
     public void setJjk(Boolean jjk) {
-	this.jjk = jjk;
+        this.jjk = jjk;
     }
 
     public Boolean isTotsival() {
-	return totsival;
+        return totsival;
     }
 
     public void setTotsival(Boolean totsival) {
-	this.totsival = totsival;
+        this.totsival = totsival;
     }
 
     public Boolean isTkd() {
-	return tkd;
+        return tkd;
     }
 
     public void setTkd(Boolean tkd) {
-	this.tkd = tkd;
+        this.tkd = tkd;
     }
 
     public Boolean isJjkInfantil() {
-	return jjkInfantil;
+        return jjkInfantil;
     }
 
     public void setJjkInfantil(Boolean jjkInfantil) {
-	this.jjkInfantil = jjkInfantil;
+        this.jjkInfantil = jjkInfantil;
     }
 
     public Boolean isJjkIniciacio() {
-	return jjkIniciacio;
+        return jjkIniciacio;
     }
 
     public void setJjkIniciacio(Boolean jjkIniciacio) {
-	this.jjkIniciacio = jjkIniciacio;
+        this.jjkIniciacio = jjkIniciacio;
     }
 
     public Boolean isIoga() {
-	return ioga;
+        return ioga;
     }
 
     public void setIoga(Boolean ioga) {
-	this.ioga = ioga;
+        this.ioga = ioga;
     }
 
     public Boolean isActiu() {
-	return actiu;
+        return actiu;
     }
 
     public void setActiu(Boolean actiu) {
-	this.actiu = actiu;
+        this.actiu = actiu;
     }
 
     public String getLastUpdate() {
-	return lastUpdate;
+        return lastUpdate;
     }
 
     public void setLastUpdate(String lastUpdate) {
-	this.lastUpdate = lastUpdate;
+        this.lastUpdate = lastUpdate;
     }
 
     public List<Llicencia> getLlicencies() {
-	return llicencies;
+        return llicencies;
     }
 
     public void setLlicencies(List<Llicencia> llicencies) {
-	this.llicencies = llicencies;
+        this.llicencies = llicencies;
     }
 
     public List<Mensualitat> getMensualitats() {
-	return mensualitats;
+        return mensualitats;
     }
 
     public void setMensualitats(List<Mensualitat> mensualitats) {
-	this.mensualitats = mensualitats;
+        this.mensualitats = mensualitats;
     }
 
     public List<LiniaRebut> getLiniesRebut() {
-	return liniesRebut;
+        return liniesRebut;
     }
 
     public void setLiniesRebut(List<LiniaRebut> liniesRebut) {
-	this.liniesRebut = liniesRebut;
+        this.liniesRebut = liniesRebut;
+    }
+
+    public List<Comanda> getComandes() {
+        return comandes;
+    }
+
+    public void setComandes(List<Comanda> comandes) {
+        this.comandes = comandes;
     }
 
 }

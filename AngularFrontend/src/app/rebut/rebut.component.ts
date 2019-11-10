@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { saveAs } from 'file-saver';
 
+import { Fitxer } from '../models/fitxer.model';
 import { Rebut } from '../models/rebut.model';
 import { RebutService } from './rebut.service';
 
@@ -27,8 +28,8 @@ export class RebutComponent implements OnInit {
     this.dialogShown = true;
     this.cercaRebuts();
     var currentDate = new Date();
-	this.mesActual = "" +(currentDate.getMonth()+1)
-	this.anyActual = "" + currentDate.getFullYear();
+  	this.mesActual = "" +(currentDate.getMonth()+1)
+  	this.anyActual = "" + currentDate.getFullYear();
   };
 
   cercaRebuts(){
@@ -41,11 +42,8 @@ export class RebutComponent implements OnInit {
   creaRebut(){
     this.rebutService.crearRebut()
       .subscribe( data => {
-
-          var blob = new Blob([data.text], { type: 'text/plain' });
-          console.log(blob);
-          saveAs(blob, "rebuts_"+this.mesActual+"_"+this.anyActual+".xml");
-
+        var blob = new Blob([data.text], { type: 'text/plain' });
+        saveAs(blob, "rebuts_"+this.mesActual+"_"+this.anyActual+".xml");
         this.cercaRebuts();
       });
   }

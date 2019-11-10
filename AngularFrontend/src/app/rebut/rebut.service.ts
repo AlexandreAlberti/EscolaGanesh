@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { Fitxer } from '../models/fitxer.model';
 import { Rebut } from '../models/rebut.model';
 
 const httpOptions = {
@@ -19,7 +20,7 @@ export class RebutService {
   }
   
   public crearRebut() {
-    return this.http.post(this.rebutUrl, "");
+    return this.http.post<Fitxer>(this.rebutUrl, "");
   }
   
   public validarRebut(rebutID) {

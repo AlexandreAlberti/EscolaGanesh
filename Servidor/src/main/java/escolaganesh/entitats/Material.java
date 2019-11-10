@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "materials")
@@ -29,6 +32,8 @@ public class Material {
     private Integer stock;
     @Column
     private Integer stockMinim;
+    @OneToMany(mappedBy = "material")
+    private List<Comanda> comandes = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -79,7 +84,7 @@ public class Material {
     }
 
     public Integer getStock() {
-        return stock;
+        return stock != null ? stock : 0;
     }
 
     public void setStock(Integer stock) {
@@ -87,11 +92,18 @@ public class Material {
     }
 
     public Integer getStockMinim() {
-        return stockMinim;
+        return stockMinim != null ? stockMinim : 0;
     }
 
     public void setStockMinim(Integer stockMinim) {
         this.stockMinim = stockMinim;
     }
 
+    public List<Comanda> getComandes() {
+        return comandes;
+    }
+
+    public void setComandes(List<Comanda> comandes) {
+        this.comandes = comandes;
+    }
 }

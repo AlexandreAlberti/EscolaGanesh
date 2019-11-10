@@ -66,6 +66,12 @@ public class MaterialController {
 		return allMaterials;
 	}
 
+	@GetMapping(path = { "/compra" })
+	@ResponseBody
+	public String llistaCompra() throws JsonProcessingException {
+		return materialService.llistaCompra();
+	}
+
 	@GetMapping(path = { "/tipus" })
 	@ResponseBody
 	public List<TipusMaterial> allTipus() {
