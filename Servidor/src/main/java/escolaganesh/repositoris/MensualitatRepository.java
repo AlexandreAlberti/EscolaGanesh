@@ -9,7 +9,7 @@ import escolaganesh.entitats.Mensualitat;
 
 @Repository
 public interface MensualitatRepository extends JpaRepository<Mensualitat, Integer> {
-	public List<Mensualitat> findByAlumne_Id(int alumneId);
+    public List<Mensualitat> findByAlumne_Id(int alumneId);
 
-	public boolean existsMensualitatByAlumne_IdAndAnyAndMes(int alumneId, Integer year, Integer mes);
+    public boolean existsMensualitatByAlumne_IdAndAnyAndMes(int alumneId, Integer year, Integer mes);
 }

@@ -1,0 +1,57 @@
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--12-col">
+		<span class="mdl-layout-title white">Dades del rebut {{rebut.mes}} - {{rebut.year}}</span>
+	</div>
+	<div class="mdl-cell mdl-cell--3-col">
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="back()">Tornar</button>
+	</div>
+	<table class="rounded mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+		<thead>
+			<tr>
+				<th class="mdl-data-table__cell--non-numeric separator-r"><b>Alumne</b></th>
+				<th class="mdl-data-table__cell--non-numeric separator-r"><b>Total</b></th>
+				<th class="mdl-data-table__cell--non-numeric"><b>Accions</b></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let linea of rebut.linees">
+				<td class="{{linea.retornat ? 'red' : 'blue'}} separator-r">{{linea.alumneNom}}</td>
+				<td class="{{linea.retornat ? 'red' : 'blue'}} separator-r">{{linea.total}}</td>
+				<td class="mdl-data-table__cell--non-numeric">
+			      <a *ngIf="!linea.retornat" class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialog(linea.id)">
+				    <i class="material-icons">delete</i>
+				  </a>
+			      <a *ngIf="linea.retornat" class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialogRetornar(linea.id)">
+				    <i class="material-icons">assignment_return</i>
+				  </a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="superDialeg rounded shadowed demo-card-event mdl-card mdl-shadow--2dp" *ngIf="!dialogShown">
+	<h4 class="mdl-card__title">Confirmació</h4>
+	<div class="mdl-card__supporting-text">
+      <p>
+		Segur que vols aplicar el retorn del rebut {{rebut.mes}} - {{rebut.any}} de l'alumne {{selectedAlumne}}
+	  </p>
+	</div>
+    <div class="mdl-card__actions mdl-card--border">
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close" (click)="closeDialog()">Cancelar</button>
+	    &nbsp;&nbsp;&nbsp;
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="retornarRebut(selectedAlumneId)">Retornar Rebut</button>
+	</div>
+</div>
+<div class="superDialeg rounded shadowed demo-card-event mdl-card mdl-shadow--2dp" *ngIf="!dialogShownRetornar">
+	<h4 class="mdl-card__title">Confirmació</h4>
+	<div class="mdl-card__supporting-text">
+      <p>
+		Segur que vols desfer el retorn del rebut {{rebut.mes}} - {{rebut.any}} de l'alumne {{selectedAlumne}}
+	  </p>
+	</div>
+    <div class="mdl-card__actions mdl-card--border">
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close" (click)="closeDialogRetornar()">Cancelar</button>
+	    &nbsp;&nbsp;&nbsp;
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="referRebut(selectedAlumneId)">Refer Rebut</button>
+	</div>
+</div>

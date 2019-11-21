@@ -21,6 +21,7 @@ import { AddMaterialComponent } from './material/add-material.component';
 import { EditMaterialComponent } from './material/edit-material.component';
 
 import { RebutComponent } from './rebut/rebut.component';
+import { ViewRebutComponent } from './rebut/view-rebut.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RebutComponent } from './rebut/rebut.component';
     MaterialComponent,
     AddMaterialComponent,
     EditMaterialComponent,
-    RebutComponent
+    RebutComponent,
+    ViewRebutComponent
   ],
   imports: [
     BrowserModule,

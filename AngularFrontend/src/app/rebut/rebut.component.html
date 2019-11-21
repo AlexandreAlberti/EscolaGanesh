@@ -32,8 +32,10 @@
 	    <td class="blue mdl-data-table__cell--non-numeric">{{rebut.mes}}</td>
 	    <td class="blue mdl-data-table__cell--non-numeric">{{rebut.year}}</td>
 	    <td class="blue mdl-data-table__cell--non-numeric">{{rebut.validat ? 'Sí' : 'No'}}</td>
-	    <td class="blue mdl-data-table__cell--non-numeric">{{rebut.observacions}}</td>
 	    <td class="mdl-data-table__cell--non-numeric">
+	      <a *ngIf="rebut.validat" class="mdl-button mdl-js-button actionField" (click)="goViewRebut(rebut)">
+		    <i class="material-icons">remove_red_eye</i>
+		  </a>
 	      <a *ngIf="!rebut.validat" class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialog(rebut)">
 		    <i class="material-icons">monetization_on</i>
 		  </a>

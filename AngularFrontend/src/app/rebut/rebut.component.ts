@@ -4,6 +4,7 @@ import { saveAs } from 'file-saver';
 
 import { Fitxer } from '../models/fitxer.model';
 import { Rebut } from '../models/rebut.model';
+import { LineaRebut } from '../models/linearebut.model';
 import { RebutService } from './rebut.service';
 
 @Component({
@@ -54,6 +55,10 @@ export class RebutComponent implements OnInit {
         this.cercaRebuts();
 	    this.dialogShown = true;
       });  
+  };
+
+  goViewRebut(rebut: Rebut): void {
+    this.router.navigateByUrl('/rebut/view/' + rebut.id);
   };
 
   openDialog(rebut: Rebut) {

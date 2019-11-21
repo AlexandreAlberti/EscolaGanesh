@@ -33,6 +33,9 @@ public class LiniaRebut {
     @Column
     private Double total;
 
+    @Column
+    private Boolean retornat;
+
     @OneToMany(mappedBy = "liniaRebut")
     private List<LiniaDetallRebut> detalls = new ArrayList<>();;
 
@@ -74,6 +77,14 @@ public class LiniaRebut {
 
     public void setTotal(Double total) {
 	this.total = total;
+    }
+
+    public Boolean getRetornat() {
+	return retornat;
+    }
+
+    public void setRetornat(Boolean retornat) {
+	this.retornat = retornat;
     }
 
 }

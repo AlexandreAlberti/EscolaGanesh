@@ -11,6 +11,7 @@ import {AddMaterialComponent} from './material/add-material.component';
 import {EditMaterialComponent} from './material/edit-material.component';
 
 import { RebutComponent } from './rebut/rebut.component';
+import {ViewRebutComponent} from './rebut/view-rebut.component';
 
 const routes: Routes = [
   { path: 'alumne', component: AlumneComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'material', component: MaterialComponent },
   { path: 'material/add', component: AddMaterialComponent },
   { path: 'material/edit/:id', component: EditMaterialComponent },
-  { path: 'rebut', component: RebutComponent }
+  { path: 'rebut', component: RebutComponent },
+  { path: 'rebut/view/:id', component: ViewRebutComponent }
 ];
 
 @NgModule({
