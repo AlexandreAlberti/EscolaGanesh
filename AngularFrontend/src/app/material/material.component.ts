@@ -23,7 +23,6 @@ export class MaterialComponent implements OnInit {
   anyActual : string = ""; 
 
   constructor(private router: Router, private materialService: MaterialService) {
-{text: "Compra de 2 unitats de: Dobok (Talla M)."}
 
   }
 

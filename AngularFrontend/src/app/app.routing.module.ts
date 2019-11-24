@@ -10,6 +10,9 @@ import { MaterialComponent } from './material/material.component';
 import {AddMaterialComponent} from './material/add-material.component';
 import {EditMaterialComponent} from './material/edit-material.component';
 
+import { ComandaComponent } from './comanda/comanda.component';
+import {AddComandaComponent} from './comanda/add-comanda.component';
+
 import { RebutComponent } from './rebut/rebut.component';
 import {ViewRebutComponent} from './rebut/view-rebut.component';
 
@@ -21,6 +24,8 @@ const routes: Routes = [
   { path: 'material', component: MaterialComponent },
   { path: 'material/add', component: AddMaterialComponent },
   { path: 'material/edit/:id', component: EditMaterialComponent },
+  { path: 'comanda', component: ComandaComponent },
+  { path: 'comanda/add', component: AddComandaComponent },
   { path: 'rebut', component: RebutComponent },
   { path: 'rebut/view/:id', component: ViewRebutComponent }
 ];

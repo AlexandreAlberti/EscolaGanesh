@@ -20,6 +20,10 @@ import { MaterialComponent } from './material/material.component';
 import { AddMaterialComponent } from './material/add-material.component';
 import { EditMaterialComponent } from './material/edit-material.component';
 
+import { ComandaService } from './comanda/comanda.service';
+import { ComandaComponent } from './comanda/comanda.component';
+import { AddComandaComponent } from './comanda/add-comanda.component';
+
 import { RebutComponent } from './rebut/rebut.component';
 import { ViewRebutComponent } from './rebut/view-rebut.component';
 
@@ -33,6 +37,8 @@ import { ViewRebutComponent } from './rebut/view-rebut.component';
     MaterialComponent,
     AddMaterialComponent,
     EditMaterialComponent,
+    ComandaComponent,
+    AddComandaComponent,
     RebutComponent,
     ViewRebutComponent
   ],
@@ -47,7 +53,8 @@ import { ViewRebutComponent } from './rebut/view-rebut.component';
   	LlicenciaService,
   	MensualitatService,
   	MaterialService,
-  	RebutService
+  	RebutService,
+    ComandaService
   ],
   bootstrap: [AppComponent],
   entryComponents: [ ]

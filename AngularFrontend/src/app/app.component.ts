@@ -26,6 +26,10 @@ export class AppComponent {
     this.router.navigateByUrl('/material');
   };
 
+  goComanda() {
+    this.router.navigateByUrl('/comanda');
+  };
+
   goRebut() {
     this.router.navigateByUrl('/rebut');
   };

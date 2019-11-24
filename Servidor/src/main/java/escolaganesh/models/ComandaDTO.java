@@ -4,8 +4,11 @@ public class ComandaDTO {
 
     private int id;
     private int idAlumne;
+    private String nomAlumne;
     private int idMaterial;
+    private String descMaterial;
     private int idLiniaDetall;
+    private int quantitat;
     private double preuFinal;
     private boolean pagat;
     private boolean entregat;
@@ -35,12 +38,36 @@ public class ComandaDTO {
         this.idMaterial = idMaterial;
     }
 
+    public String getNomAlumne() {
+        return nomAlumne;
+    }
+
+    public void setNomAlumne(String nomAlumne) {
+        this.nomAlumne = nomAlumne;
+    }
+
+    public String getDescMaterial() {
+        return descMaterial;
+    }
+
+    public void setDescMaterial(String descMaterial) {
+        this.descMaterial = descMaterial;
+    }
+
     public int getIdLiniaDetall() {
         return idLiniaDetall;
     }
 
     public void setIdLiniaDetall(int idLiniaDetall) {
         this.idLiniaDetall = idLiniaDetall;
+    }
+
+    public int getQuantitat() {
+        return quantitat;
+    }
+
+    public void setQuantitat(int quantitat) {
+        this.quantitat = quantitat;
     }
 
     public double getPreuFinal() {

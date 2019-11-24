@@ -107,6 +107,8 @@ public class RebutService {
 			detall.setQuantitat(c.getPreuFinal());
 			detall.setLiniaRebut(linea);
 			detall = repositoryDetall.save(detall);
+			c.setIdLiniaDetall(detall.getId());
+			repositoryComanda.save(c);
 			linea.getDetalls().add(detall);
 			total += c.getPreuFinal();
 			totalLinea += c.getPreuFinal();

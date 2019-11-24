@@ -1,0 +1,85 @@
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--12-col">
+		<span class="mdl-layout-title white">Llistat Comandas</span>
+	</div>
+	<div class="mdl-cell mdl-cell--3-col">
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="goCreateComanda()">Afegir</button>
+	</div>
+	
+	<table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table mdl-shadow--2dp rounded">
+	  <thead>
+	  <tr>
+	    <th class="hidden">Id</th>
+	    <th class="mdl-data-table__cell--non-numeric">Quantitat</th>
+	    <th class="mdl-data-table__cell--non-numeric">Preu Final</th>
+	    <th class="mdl-data-table__cell--non-numeric">Alumne</th>
+	    <th class="mdl-data-table__cell--non-numeric">Material</th>
+	    <th class="mdl-data-table__cell--non-numeric">Pagat</th>
+	    <th class="mdl-data-table__cell--non-numeric">Entregat</th>
+	    <th class="mdl-data-table__cell--non-numeric">Concepte Adicional</th>
+	    <th class="mdl-data-table__cell--non-numeric">Accions</th>
+	  </tr>
+	  </thead>
+	  <tbody>
+	  <tr *ngFor="let comanda of comandas">
+	    <td class="hidden">{{comanda.id}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{comanda.quantitat}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{comanda.preuFinal}}€</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{comanda.nomAlumne}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{comanda.descMaterial}}</td>
+	    <td class="{{comanda.pagat ? 'blue' : 'red'}} mdl-data-table__cell--non-numeric">{{comanda.pagat ? 'Sí' : 'No'}}</td>
+	    <td class="{{comanda.entregat ? 'blue' : 'red'}} mdl-data-table__cell--non-numeric">{{comanda.entregat ? 'Sí' : 'No'}}</td>
+	    <td class="blue mdl-data-table__cell--non-numeric">{{comanda.concepteAdicional}}</td>
+	    <td class="mdl-data-table__cell--non-numeric">
+	      <a *ngIf="comanda.idLiniaDetall === 0" class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialog(comanda)">
+		    <i class="material-icons">delete</i>
+		  </a>
+
+  	      <a *ngIf="comanda.pagat" class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialog2(comanda, true, true)">
+		    <i class="material-icons">money_off</i>
+		  </a>
+
+	      <a *ngIf="!comanda.pagat" class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialog2(comanda, true, false)">
+		    <i class="material-icons">attach_money</i>
+		  </a>
+
+	      <a *ngIf="comanda.entregat" class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialog2(comanda, false, true)">
+		    <i class="material-icons">work_off</i>
+		  </a>
+
+	      <a *ngIf="!comanda.entregat" class="mdl-button mdl-js-button mat-raised-button actionField" (click)="openDialog2(comanda, false, false)">
+		    <i class="material-icons">work</i>
+		  </a>
+
+		 </td>
+	  </tr>
+	  </tbody>
+	</table>
+</div>
+
+<div class="superDialeg rounded shadowed demo-card-event mdl-card mdl-shadow--2dp" *ngIf="!dialogShown">
+	<h4 class="mdl-card__title">Confirmació</h4>
+	<div class="mdl-card__supporting-text">
+      <p>
+		Segur que vols esborrar el comanda {{selectedComanda.descripcio}}
+	  </p>
+	</div>
+    <div class="mdl-card__actions mdl-card--border">
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close" (click)="closeDialog()">Cancelar</button>
+	    &nbsp;&nbsp;&nbsp;
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="deleteComanda(selectedComanda.id)">Esborrar</button>
+	</div>
+</div>
+<div class="superDialeg rounded shadowed demo-card-event mdl-card mdl-shadow--2dp" *ngIf="!dialogShown2">
+	<h4 class="mdl-card__title">Confirmació</h4>
+	<div class="mdl-card__supporting-text">
+      <p>
+		Segur que vols marcar com a {{ pagatTrueOentregatFalseValue ? 'NO':''}} {{ pagatTrueOentregatFalse ? 'PAGAT':'ENTREGAT'}} el material {{selectedComanda.descMaterial}} a l'alumne {{selectedComanda.nomAlumne}}
+	  </p>
+	</div>
+    <div class="mdl-card__actions mdl-card--border">
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored close" (click)="closeDialog2()">No</button>
+	    &nbsp;&nbsp;&nbsp;
+	    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="goEditComanda(selectedComanda)">Sí</button>
+	</div>
+</div>

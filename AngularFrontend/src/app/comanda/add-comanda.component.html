@@ -1,0 +1,37 @@
+<div class="mdl-grid">
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col rounded">
+	<h4 class="mdl-card__title">Nova comanda</h4>
+	<div class="mdl-card__supporting-text">
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--6-col">
+				<span>Alumne:</span>
+				<select type="number" class="mdl-textfield__input" [(ngModel)]="comanda.idAlumne">
+				  <option *ngFor="let al of alumnes" [ngValue]="al.id">{{al.firstName}} {{al.lastName}}</option>
+				</select>
+			</div>			
+			<div class="mdl-cell mdl-cell--6-col">
+				<span>Material:</span>
+				<select type="number" class="mdl-textfield__input" [(ngModel)]="comanda.idMaterial">
+				  <option *ngFor="let mat of materials" [ngValue]="mat.id">{{mat.descripcio}} ({{mat.observacions}})</option>
+				</select>
+			</div>			
+			<div class="mdl-cell mdl-cell--2-col">
+				<span>Preu Final (€):</span>
+				<input [(ngModel)]="comanda.preuFinal" class="mdl-textfield__input" type="text" id="preuFinal" name="preuFinal">
+			</div>			
+			<div class="mdl-cell mdl-cell--2-col">
+				<span>Quantitat:</span>
+				<input [(ngModel)]="comanda.quantitat" class="mdl-textfield__input" type="text" id="quantitat" name="quantitat">
+			</div>
+			<div class="mdl-cell mdl-cell--8-col">
+				<span>ConcepteAdicional:</span>
+				<input [(ngModel)]="comanda.concepteAdicional" class="mdl-textfield__input" type="text" id="concepteAdicional" name="concepteAdicional">
+			</div>
+		</div>
+	</div>
+    <div class="mdl-card__actions mdl-card--border">
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="back()">Tornar</button>
+		<span>&nbsp;&nbsp;&nbsp;</span>
+		<button class="rounded mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" (click)="saveComanda()">Guardar</button>		
+	</div>
+</div></div>

@@ -22,11 +22,11 @@ public class LiniaDetallRebut {
 	@ManyToOne
 	private LiniaRebut liniaRebut;
 
-	// TODO: ENUM a futur per si cal distingir entre comanda/mensualitat
+	// comanda = 1 / mensualitat = 0
 	@Column
 	private Integer tipus;
 
-	// TODO: Id que identifica el tipus de contingut, si escau. Comanda de material.
+	// Id que identifica el tipus de contingut. Comanda de material o Mensualitat.
 	@Column
 	private Integer idTipus;
 
